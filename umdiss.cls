@@ -81,17 +81,17 @@
 
 \newcommand{\@universityname}{University of Miami}
 \newcommand{\@universityaddress}{Coral Gables, Florida}
-\newcommand{\dissdepartment}{Department of Electrical and Computer Engineering}
+\newcommand{\dissdepartment}{Department Computer Science}
 \newcommand{\dissauthorFirst}{First Name}
 \newcommand{\dissauthorLast}{Last Name}
 \newcommand{\dissdate}{Date}
 \newcommand{\dissmonth}{Month}
 \newcommand{\dissyear}{Year}
-\newcommand{\disstitle}{Dissertation Title}
-\newcommand{\dissabstitle}{Dissertation Title\\ if you want it split it}
+\newcommand{\disstitle}{Thesis Title}
+\newcommand{\dissabstitle}{Thesis Title\\ if you want it split it}
 
 \newcommand{\dissauthoraddress}{USA}
-\newcommand{\dissmajor}{Electrical and Computer Engineering}
+\newcommand{\dissmajor}{Master of Computer Science}
 \newcommand{\dissacknowledgmentsigplace}%
     {{\slshape
        \renewcommand{\arraystretch}{1.0}
@@ -172,9 +172,8 @@
       \end{center}}\\[15mm]
     {\dissauthorFirst\ \dissauthorLast}\\
     \dissdepartment \\[8mm]
-    A dissertation submitted in partial fulfillment of \\
-    the requirement for the degree of\\ 
-    Doctor of Philosophy\\[15mm]
+    A thesis submitted in partial fulfillment of \\
+    the requirement for the master's degree\\[15mm]
     Advisor : \disssupervisor \\[10mm]
     Committee Members \\[5mm]
     \disscommitteeFirst\\ 
@@ -206,13 +205,13 @@
       By \\[0.02\textheight]
       {\dissauthorFirst \ \dissauthorLast} \\
       \vspace{15mm}
-      {A DISSERTATION} \\[15mm]
+      {A MASTER'S THESIS} \\[15mm]
 
 	\begin{spacing}{1}
 		Submitted to the Faculty \\
 		of the University of Miami \\
 		in partial fulfillment of the requirements for \\
-		the degree of Doctor of Philosophy\\[30mm]
+		the master's degree\\[30mm]
 	\end{spacing}
       \@universityaddress \\
       \dissmonth \ \dissyear
@@ -274,9 +273,8 @@
   \begin{center}
     \MakeUppercase{\normalsize \@universityname} \\[15mm]
     \begin{spacing}{1}
-    A dissertation submitted in partial fulfillment of \\
-    the requirements for the degree of\\
-    Doctor of Philosophy\\
+    A thesis submitted in partial fulfillment of \\
+    the requirements for the master's degree\\
     \end{spacing}
     \vspace{2mm}
     \parbox[t]{\textwidth}{
@@ -306,21 +304,21 @@
   \end{spacing}
   \end{minipage}\\[10mm]
   %
-  \begin{minipage}[t]{2.6in}
-  \begin{spacing}{1}
-    \rule{2.5in}{0.5pt}\newline 
-	\disscommitteeSecond, Ph.D.\\
-    \disscommitteeSecondtitle
-  \end{spacing}  
-  \end{minipage}\hfill
+  % \begin{minipage}[t]{2.6in}
+  % \begin{spacing}{1}
+  %   \rule{2.5in}{0.5pt}\newline 
+  % \disscommitteeSecond, Ph.D.\\
+  %   \disscommitteeSecondtitle
+  % \end{spacing}  
+  % \end{minipage}\hfill
   %
-  \begin{minipage}[t]{2.6in} 
-  \begin{spacing}{1}
-    \rule{2.5in}{0.5pt}~\newline
-    \disscommitteeThird, Ph.D.\\
-    \disscommitteeThirdtitle\\
-  \end{spacing}  
-  \end{minipage}\\[10mm]
+  % \begin{minipage}[t]{2.6in} 
+  % \begin{spacing}{1}
+  %   \rule{2.5in}{0.5pt}~\newline
+  %   \disscommitteeThird, Ph.D.\\
+  %   \disscommitteeThirdtitle\\
+  % \end{spacing}  
+  % \end{minipage}\\[10mm]
   %
   \begin{minipage}[t]{2.5in}
   \begin{spacing}{1}
@@ -357,7 +355,7 @@
   \parbox[t]{0.6\textwidth}{\raggedleft
       \begin{spacing}{0}
 	\hfill
-	{ (Ph.D.,\ \dissmajor)}\\
+	{ (\dissmajor)}\\
       \end{spacing}}
 %
   \parbox[t]{0.5\textwidth}{\raggedright
@@ -375,13 +373,13 @@
   \parbox[t]{0.65\textwidth}{\raggedright
       \vspace{5mm}
       \begin{spacing}{1}
-	  { Abstract of a dissertation at the University of Miami.}
+	  { Abstract of a thesis at the University of Miami.}
       \end{spacing}}\\
 %        
   \parbox[t]{0.85\textwidth}{\raggedright
       \vspace{5mm}
       \begin{spacing}{1}
-	  { Dissertation supervised by Professor \disssupervisor.\\
+	  { Thesis supervised by Professor \disssupervisor.\\
 	  No. of pages in text. (\pageref{LastPage})}
       \end{spacing}}\hfill
       \vspace{18mm}

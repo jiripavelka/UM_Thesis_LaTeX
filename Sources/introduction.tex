@@ -1,3 +1,35 @@
 \chapter{Introduction} \label{chap:intro}
 
-Introduction goes here...
+This chapter describes the initial problems related to assignment management, namely \emph{coding assignments} on computer science departments across universities. In contrast to software development experience, current practices seem inefficient, unreliable (unfair) and wasteful.
+
+The goal of this project is to review current practices together with other existing approaches and to propose an assignment management system (AMS) providing solutions to existing issues. Its key qualities should be ADA compliance, flexibility, extendability, platform/vendor independence and plagiarism check. Additionally, the system should be built upon best practices and thus provide students real world developer experience.
+
+\section{Current Practice} \label{sec:current}
+
+{In computer science departments across universities, coding assignments are being managed mostly unconventionally. Possible conventional approaches}\footnote{For specific purposes versioning and collaborative tools are sometimes used, such as Google Colab or Overleaf (used e.g. by MIT or Stanford).}{ are usually compatible (integrable) with the hereby proposed solution. Current practices of providing support and evaluation is mostly manual and thus inefficient and vague.}
+
+{Students are usually asked to }{manually download PDFs or text files with instructions}{~from arbitrary sources, e.g. from a learning management system (such as Blackboard) or from a professor's personal website. Similarly }{code files are being manually downloaded}{~(file by file using a mouse) usually form various arbitrary locations. Imagine what happens whenever there is a need to update instructions or (God forbid) the code base throughout the semester.}
+
+{Left with no concept, students use obscure ways to work on assignments and to request remote support. It's no exception when a teaching assistant obtains an email with a photo of a code displayed on a computer screen taken by their smartphone}\footnote{This has also become one of the most common ways students share their solutions between each other.}{. Or when the email attachment contains the solution code pasted into a Word document.}
+
+{It became an unflattering standard to }{provide support directly on students' own devices}{~(even remotely using Zoom). This becomes especially inefficient and challenging with various devices, operating systems, keyboard layouts and languages. Imagine a Chinese operating system, Chinese keyboard, poor computer performance with possible hardware issues (typically bad screen), poor internet connection (if working remotely). Not mentioning legal aspect, students' computers are not always super clean and polished. Imagine the feeling when a student tells you: ``This used to work before you touched it.''}
+
+{Submitting assignments for evaluation is processed in even more diverse and obscure ways. Most commonly, professors require their assignments to be}{~manually copied into course-specific Unix accounts over SCP}\footnote{A low-level Unix command used to copy files across remote locations.}{. Shockingly enough some professors require coding assignments to be submitted as email attachments or even printed out (!!) and submitted physically.}
+
+{In best cases (yet quite rarely), solutions are being uploaded (synced) using proprietary services such as Blackboard or Box. Being not (or poorly) designed for coding assignments, these services are }{usually inappropriate or insufficient from various (crucial) perspectives as shown in a state of the art chapter of this thesis.}
+
+{Most of the }{evaluation is done manually}{~mostly by TAs and by reading solution codes and/or running them on several trivial cases that may or may not actually verify the solution. Most evaluation is therefore vague leaving space for human errors (mostly false positives). For some courses coding assignments are evaluated directly on students' computers during labs by looking at their output in visual comparison to the expected output (!!). This increases human errors not mentioning that there is }{no way to backtrace evaluation}{. How frustrating for both teachers and students.}
+
+\section{Needs and Criteria} \label{sec:criteria}
+
+{The main need is to obtain guidance for (coding) assignment management with automated distribution to and from students, traceable modification history, conventional }{remote support (without operating other computers)}{~and continuous and objective evaluation. Additionally provide collective evaluation and software similarity measure (AKA plagiarism check). No prior knowledge or additional reliability is required from students.}
+
+{In the first place, the documentation describes processes to create a fully working project and derive the assignment from it. An integration AMS command will be introduced in order to support automatic evaluation and display status badges to individual solutions on compilation, coding style and tests.}
+
+{Another AMS command takes care of distributing the assignment among students. It creates repositories with assignment code base and instructions for individual students. Possible assignment updates are processed similarly to distribution and result in pull requests (AKA merge requests).}
+
+{Since the proposed solution is integrable with GitLab/GitHub environments, students can work on assignments from different devices using any IDE, CLI or even browser UI. Additionally the environment allows conventional remote support (using issues), as well as possibly ~forcing changes into individual solutions.}
+
+{Above that students can discuss comments and suggestions and view the history of changes. They can also revert to any point in history. Every step is stored faithfully in time (including reverting). Instructors can check on solution progress, evaluate solutions collectively and compare files to their original solution (the working project).}
+
+{Additionally an integration for plagiarism check will be introduced. It gathers corresponding solutions and compare them with each other including the professor's original working solution.}

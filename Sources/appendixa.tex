@@ -1,0 +1,172 @@
+\chapter{Tutorial for Instructors} \label{app:tut-ins}
+
+{This document extends the assignment management system distribution process into a complete guide for instructors from project creation to evaluation and similarity measure. It provides general information on recommended project structure and organization and illustrates it with examples.}
+
+\section{Create a new GitLab project repository} \label{ssec:createnewglrep}
+
+{Create a new assignment project repository.}
+
+\begin{enumerate}
+\item
+  {Login to GitLab and go to your namespace.}
+    \begin{itemize}
+    \item
+      {E.g. \texttt{umiami/george}}
+    \end{itemize}
+\item
+  {Create a GitLab group with a course name.}
+    \begin{itemize}
+    \item
+      {E.g. \texttt{umiami/george/csc220}}
+    \end{itemize}
+\item
+  {Create a new empty GitLab project in the course namespace.}
+    \begin{itemize}
+    \item
+      {E.g. \texttt{umiami/george/csc220/lab01}}
+    \item
+      {E.g. \texttt{umiami/george/csc220/lab02}}
+    \end{itemize}
+\end{enumerate}
+
+\section{Add a working and tested assignment project in the repository} \label{ssec:addworking}
+
+{In the created project's main branch establish a fully tested and properly documented working assignment project.}
+
+\begin{enumerate}
+\item
+  {Establish a working project.}
+    \begin{itemize}
+        \item
+          {E.g. \texttt{umiami/george/csc220/lab01}}
+        \item
+          {E.g. \texttt{umiami/george/csc220/lab02}}
+    \end{itemize}
+\item
+  {Make sure the source code is properly documented.}
+    \begin{itemize}
+    \item
+      {E.g. \texttt{lab02/src/main/Introduction.java}}
+    \item
+      {E.g. \texttt{lab01/src/main/Matrix.java}}
+    \end{itemize}
+
+\item
+  {Add a set of tests . For Java, refer to Maven and JUnit documentation.}    
+    \begin{itemize}
+    \item
+      {E.g. \texttt{lab01/src/test/IntroductionTest.java}}
+    \item
+      {E.g. \texttt{lab02/src/test/MatrixTest.java}}
+    \end{itemize}
+    
+\item
+  {Integrate evaluation CI from Assignment Management System script  for compilation, coding style and unit tests following given instructions.}
+    \begin{itemize}
+    \item
+      {E.g. \texttt{lab01/.gitlab-ci.yml}}
+    \item
+      {E.g. \texttt{lab02/.gitlab-ci.yml}}
+    \end{itemize}
+
+\item
+  {Make a \texttt{README} file with project description, usage and other necessary information. Add badges links as instructed in the Assignment Management System script. All badges should be fully passing.}
+    \begin{itemize}
+    \item
+      {E.g. \texttt{lab01/README.md}}
+    \item
+      {E.g. \texttt{lab02/README.md}}
+    \end{itemize}
+\end{enumerate}
+
+\section{Derive an assignment from the working project} \label{ssec:deriveassn}
+
+{Derive an assignment from on a separate branch in the assignment project repository.}
+
+\begin{enumerate}
+\item
+ {Create a new assignment branch from the working project (if it does not exist yet) and switch to it.}
+    \begin{itemize}
+    \item
+      {E.g. \texttt{umiami/george/csc220/lab01@fall20}}
+    \item
+      {E.g. \texttt{umiami/george/csc220/lab02@fall20}}
+    \end{itemize}
+
+\item
+  {Update badges links as instructed in the Assignment Management System script .}
+    \begin{itemize}
+    \item
+      {E.g. \texttt{lab01/README.md@fall20}}
+    \item
+      {E.g. \texttt{lab02/README.md@fall20}}
+    \end{itemize}
+
+\item
+  {Modify or reduce tests to prevent obscure trivial solutions. You may for example alter testing values or expected results order. Or, on the contrary, add some tests into the master branch. (if applicable)}
+    \begin{itemize}
+    \item
+      {E.g. \texttt{lab02/src/tests/MatrixTest.java} vs. \texttt{lab02/src/tests/MatrixTest.java@spring21}}
+    \end{itemize}
+
+\item
+  {Replace chunks of code with \texttt{TODO comments} preserving the code integrity. This should result in some (or all) failing tests with no compilation or coding style errors/warnings .}
+    \begin{itemize}
+    \item
+      {E.g. \texttt{lab01/src/main/Introduction.java@fall20}}
+    \item
+      {E.g. \texttt{lab02/src/main/Matrix.java@fall20}}
+    \end{itemize}
+
+\item
+  {Add assignment instructions into the \texttt{README} file or in form of issues. Issues marked with corresponding labels (see the Assignment Management System script) will be distributed together with the assignment.}
+    \begin{itemize}
+    \item
+      {E.g. \texttt{lab01/README.md@fall20}}
+    \item
+      {E.g. \texttt{lab02/README.md@fall20}}
+    \end{itemize}
+\end{enumerate}
+
+\section{Distribute the assignment among solvers} \label{ssec:distributeassn}
+
+{To distribute the assignment, make sure the Assignment Management System script CI is integrated in the assignment branch. Follow given instructions.}
+
+\begin{itemize}
+\item
+  {E.g. \texttt{lab01/.gitlab-ci.yml@fall20}}
+\item
+  {E.g. \texttt{lab02/.gitlab-ci.yml@fall20}}
+\end{itemize}
+
+\section{Provide Remote Support} \label{ssec:providesup}
+
+{There are several ways to participate in development, ergo to provide support. Apart from a simple reply to an email or a GitLab issue, you may want to suggest an edit using merge request or push directly into the solver repository.}
+{Creating a merge request is the most suitable and recommended way to suggest edits and fixes. You can link the request directly from your reply. Pushing directly into the solver repository seems simpler, however ill-advised unless (possibly) when supporting the solver in person.}
+
+{Note: To locate and fix issues, instructors can use the same means as solvers for solving assignments, see AMS Tutorial for Solvers document.}
+
+\section{Collective operations} \label{ssec:collop}
+
+{To evaluate all assignments collectively, make sure the Assignment Management System script CI is integrated in the assignment branch. Follow given instructions.}
+
+\begin{itemize}
+\item
+  {E.g. \texttt{lab01/.gitlab-ci.yml@fall20}}
+\item
+  {E.g. \texttt{lab02/.gitlab-ci.yml@fall20}}
+\end{itemize}
+
+{Using (temporary) variables, assignments can be evaluated to a certain date (e.g. deadline). Parsing the collective evaluation output, scores can be automatically assigned and exported directly to LMS (e.g. BlackBoard grading).}
+
+\section{Software similarity measure} \label{ssec:softwaresim}
+
+{To measure software similarities across all solutions, make sure the Assignment Management System script CI is integrated in the assignment branch. Follow given instructions.}
+
+\begin{itemize}
+\item
+  {E.g. \texttt{lab01/.gitlab-ci.yml@fall20}}
+\item
+  {E.g. \texttt{lab02/.gitlab-ci.yml@fall20}}
+\end{itemize}
+

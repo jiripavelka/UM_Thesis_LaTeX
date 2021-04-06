@@ -1,0 +1,173 @@
+\chapter{Tutorial for Solvers} \label{app:tut-sol}
+
+{This document provides guidance for beginners on how to proceed with solving assignments. Make sure you did not miss a step before asking a question. Since this environment is widely used, always search online for your questions before asking out loud.}
+
+\section{Log in to GitLab}\label{sec:login}
+
+{Log in to GitLab using your university username. Create an account if you don't have one. Preferably your GitLab username would match the university username used in your assignment's link, e.g. \texttt{solver1} from our example below.}
+
+\section{Navigate to your assignment repository}\label{sec:navig}
+
+{First, have a look into the Your projects tab on GitLab's homepage. If you can see the current assignment, open the project and proceed to step 4.}
+
+{Each solver (student) gets their own repository with a specific link. The link usually ends with the solver's username, e.g. \texttt{solver1} in the following link. To navigate into your assignment repository, simply follow the link.}
+
+{The link usually contains your university namespace followed by the professor's username, course, semester and project name consecutively. Project name may consist of the lab name and username separated by dash, e.g. \texttt{lab01-vjm001} in the following sample links.}
+
+\begin{itemize}
+\item
+  {https://gitlab.com/umiami/george/csc220/spring21/lab01-solver1}
+\item
+  {https://gitlab.com/umiami/george/csc220/spring21/lab02-solver1}
+\end{itemize}
+
+{In order to access your specific assignment, make sure you replace the existing username \texttt{solver1} with your GitLab/university username.}
+
+\section{Request access}\label{sec:reqacc}
+
+{Make sure you have access to modify the project. Simply look for a }{Request access}{~link in the project's main page. Click the link if present\footnote{If the link is not present, you may have already gained the access. Double-check the first instruction in Step 2 (above).}.}
+
+{Regardless if the request has been approved, you may proceed to further steps. You may urge the project owner/administrator if you believe the approval is imminent.}
+
+\section{Explore GitLab}\label{sec:explgl}
+
+{Take your time to quickly explore GitLab project's main page. Make sure you can locate the following sections in the consecutive order:}
+
+\begin{itemize}
+\item
+  {project name as the topmost heading, {[}check now{]}}
+\item
+  {History and Find file buttons right, {[}check now{]}}
+\item
+  {list of repository files and folders, {[}check now{]}}
+\item
+  {list of status badges -- pipeline, compilation, coding style and passed tests, {[}check now{]}}
+\item
+  {project title and description followed by lab and assignment instructions, {[}check now{]}}
+\item
+  {Merge requests item in the left vertical menu, {[}check now{]}}
+\item
+  {Issues item in the left vertical menu. {[}check now{]}}
+\end{itemize}
+
+{Additionally you may want to scan through GitLab basic guide. In order to ease up your authorization process, consider adding an SSH key to your profile. You can add multiple keys from various computers anytime.}
+
+\section{Make sure your assignment is up-to-date}\label{sec:makesure}
+
+{Before you start working on your project, check for its potential updates from your professor in the merge request\footnote{More common terminology for “merge request” is “pull request”. Both terms stand for the same operation looking at it from different directions.} section first. If there are no merge requests, continue to the next step. Otherwise, proceed to merging the request.}
+
+\begin{enumerate}
+\item
+  {Navigate to Merge requests, look for a request called \texttt{Update from source branch} and click it.}
+\item
+  {Find out requested modifications by clicking the Changes tab.}
+\item
+  {Ideally, there should be no conflicts\footnote{A conflict can occur if the modified file has been modified by the solver in a similar place. Merging a conflicting merge request lets you decide which modifications to keep.}. Don't worry about it unless merging is blocked.}
+\item
+  {Return to the Overview tab (on the same page) and press the Merge button. If a pipeline is running, you may see a button to Merge when pipeline succeeds. You can select the Merge immediately option.}
+\end{enumerate}
+
+{You may be notified about important updates to your repositories including new tasks by your professor. It is a good habit to check on merge requests (and issues) regularly regardless. You don't want to miss an update or a task!}
+
+\section{Pick your favorite method and tool}\label{sec:pick}
+
+{There are multiple methods to work on assignments. All methods are equivalent and interchangeable. Feel free to combine them and apply from various devices independently. Specific tools (editors) may be recommended by your professor including on-line editors such as Google Colab.}
+
+{Following is a short workflow reminder for each method. If you need more thorough instructions, refer to sample labs linked throughout this document. They will guide you through each method individually step by step.}
+
+\begin{itemize}
+\item
+  {Using GitLab's browser UI}
+    \begin{enumerate}
+    \item
+      {Navigate to the file you want to edit and click the Edit (or Web IDE) button.\footnote{If the Edit button is not available, refer to the Request access section of this document (above).}}
+    \item
+      {Edit files using the selected editor.}
+    \item
+      {Double-check your modifications before committing by clicking on the Preview changes tab (or Review in Web IDE) in the editor's header.}
+    \item
+      {Describe what the current modification does into a Commit message and click the Commit changes (or just Commit) button. Make sure you are committing into the main branch (usually called master or main) unless you know what you're doing.}
+    \end{enumerate}
+
+\item
+  {Using CLI, e.g. Git Cheat Sheet}
+    \begin{enumerate}
+    \item
+      {Clone the assignment repository into your computer or pull current state if already cloned using \texttt{git clone} or \texttt{git pull} commands respectively.}
+    \item
+      {Edit files using any tool you like, e.g. Vim, gedit, VS Code, Sublime etc. Use your OS UI or a command, such as \texttt{gedit {[}filename{]}}.}
+    \item
+      {Double-check your modifications before committing using \texttt{git diff} command.}
+    \item
+      {Commit changes (with a commit message) and push back into the GitLab repository using \texttt{git commit} and \texttt{git push} commands respectively.}
+    \end{enumerate}
+\item
+  {Using IDE, e.g. see Eclipse Git Tutorial}
+    \begin{enumerate}
+    \item
+      {Add the assignment project into an editor with git integration support, e.g. Eclipse.}
+    \item
+      {Proceed with editing files. Save anytime you want to run the file.}
+    \item
+      {Double-check your modifications before committing. Your IDE will (most probably) show you differences between commits automatically. There is usually a way to display rich differences. You can always use CLI (above).}
+    \item
+      {Commit and push changes into the repository using the editor's IDE. The editor will (most probably) ask you for a commit message.}
+    \end{enumerate}
+\end{itemize}
+
+{Fragment your commits into reasonably small steps. At the very minimum, commit whenever you finish a step. Remember to double-check your modifications before committing! Describe what the current modification does with an appropriate commit message regardless what tool you are using.}
+
+\section{Follow instructions}\label{sec:followins}
+
+{Always read the README file and check for issues (if exist) and follow given instructions. Usually look for \texttt{TODO} sections within code files and follow their recommended order if indicated.\footnote{In the environment of automated programming, individual characters matter including case (upper/lower) and white spaces (spaces, newlines, tabs). Use copy and paste whenever possible and preserve coding style including the indentation (select lines and hit Tab key or Shift+Tab to indent).}}
+
+{The following example defines a Java \texttt{coinFlip} method in Lab01 with a standardized description called Javadoc. Similarly for other methods and languages.}
+
+\begin{verbatim}
+/**
+ * Simulate coin flipping resulting into either heads
+ * or tails with a 55\% chance in favor of heads.
+ *
+ * @return   string heads or tails
+ */
+public static String coinFlip() {
+  // TODO
+  return "";
+}
+\end{verbatim}
+
+{There is a \texttt{TODO} indicator of a missing implementation. The empty return statement is considered a placeholder for the method to compile. The resulting code following the method's description may look like this:}
+
+\begin{verbatim}
+public static String coinFlip() {
+  if (Math.random() < 0.55) {
+    return "heads"
+  }
+  return "tails"
+}
+\end{verbatim}
+
+\section{Check assignment status}\label{sec:checkassnstat}
+
+{After each repository update (commit and push), check for the project's status indicated by the set of badges located just above the title (see above). To display current status, refresh your browser. Keep refreshing until the pipeline badge stops running.}
+
+\begin{enumerate}
+\item
+  {Now locate the badge with failing tests (the last badge). Numbers \texttt{x/y} indicate that \texttt{x} tests are passing out of \texttt{y} {[}check now{]}}
+\item
+  {Click on the badge to download its log file showing which tests are failing and why. Note, that logs could be very long. In the test log file, search for the \texttt{T E S T S} string\footnote{Keeping things efficient, you can use the Find function in your viewer, typically Ctrl+F shortcut.}. {[}check now{]}}
+\item
+  {You may want to see how certain tests are implemented by exploring test files (unless they are hidden from you). In Java, tests are usually located in the \texttt{src/test} folder. {[}check now{]}}
+\end{enumerate}
+
+{For any other failing badges such as compilation or coding style\footnote{For more information on coding style refer to sources or search for (Java) coding style on-line.}, display their log and act accordingly. Always look for warnings or errors with a file name and line number. Important information is usually located by the end of the log files.}
+
+\section{Obtain remote support}\label{sec:obtaionremsup}
+
+{If you run into difficulties, always make sure you have read and followed all instructions prior to the one causing you troubles. You may revert to the last working point and start over, which works way better and faster as it sounds.}
+
+{When asking for help, use links to your repository as much as possible. You can link individual commits, merge requests, issues etc. Always make sure your problem is easily reproducible.}
+
+{The common way programmers use to obtain help is using GitLab issues. Depending on the nature of your problem, this could be your first choice before sending emails or waiting for TA hours.}
+
+{For general questions and specific errors, refer to course materials and the internet. There is a reasonable chance to believe your issue is not unique.}

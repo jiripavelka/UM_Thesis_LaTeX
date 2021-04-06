@@ -1,115 +1,745 @@
-\chapter{Chapter Two Title} \label{chap:1}
+\chapter{Research Phase} \label{chap:research}
 
-This is just a sample writing to show how to insert figures, tables, equations, and citations.
+{The research phase sums up the current state of the are beginning with current practices. Adding a set of so-called Web 2.0 concepts the next sections sums up various features into topics. Qualitative surveys (on those topics) with professors, students and other participants result in sets of features, summed up in a quantitative survey on levels of necessity.}
 
-Each chapter can be divided into several sections, sub-sections, and sub-sub-sections as below. Each section or sub-section is identified by a \emph{label} that is unique for that specific part. If you would like to refer to one of these parts you just insert the label title into the \emph{ref} like Section \ref{sec:foo}. 
-In LaTeX, you can easily reference almost anything that is numbered (sections, figures, tables, formulas), and LaTeX will take care of numbering, updating it whenever necessary. The commands to be used do not depend on what you are referencing.
-As an example, Fig. \ref{fig:big-picture} shows a sample figure and Table \ref{tab:runTime} shows a sample table. 
+{Based on the survey, two sets of qualitative and functional requirements were established. The last section contains a comparison of 2 × 10 most crucial qualitative and requirements across individual approaches from the state of the art chapter.}
 
-Citing a given document is very easy. Go to the point where you want the citation to appear, and use the \cite{haghighat2015cloudid}, where the term between the curly brackets is that of the bibitem you wish to cite. The list of the bibitems must be included in the \emph{references.bib} file. You can also refer to more than one documents in one location \cite{haghighat2016discriminant1, haghighat2013identification, haghighat2016discriminant2}. 
+\section{State of the Art} \label{sec:sota}
 
+{There are multiple methods to distribute assignments between professors and students (instructors and solvers). Even with manual distributions, there are certain features that may be considered during surveys.}
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=0.6\textwidth]{./Figures/big-picture.png}
-\caption{This is where the caption of the figure goes.}
-\label{fig:big-picture}
-\end{figure}
+\subsection{Manual Distribution Methods} \label{ssec:manual}
 
+{The simplest way to distribute assignments is manually. There are various combinations of the following examples still being used in most universities by the time this research was taking place in 2020.}
 
+\subsubsection{Manual downloads}
 
-\section{Equations} \label{sec:equation}
+{Professor publishes course materials online together with assignment instructions including coding script templates or framework. Students download the assignment files manually (file by file) preserving the original folder structure.}
 
-Section \ref{sec:equation} is just an example to show how to insert inline and numbered equations. 
+\subsubsection{Manual uploads}
 
-The inline equations has to be inserted between two dollar signs. Some examples are: $X^{\prime}$, or $Y^{\prime}$, or $S_{xy_{(r\times r)}}^{\prime}$. 
+{Students obtain course-specific credentials (username and password). They upload their solutions using SCP or similar (proprietary) commands.}
 
-The numbered equations, on the other hand, need to be placed in an equation environment beginning and ending as below:
-%
-\begin{equation} \label{eq:1}
-(U \Sigma^{-1/2})^T \, S_{xy}^{\prime} \, (V \Sigma^{-1/2}) = I \,,
-\end{equation}
-%
-which is numbered as Eq. \ref{eq:1}.
+\subsubsection{Email attachments}
 
-Eq. \ref{eq:2} is an example of a multi-line equation:
-\begin{equation} \begin{split} \label{eq:2}
-G(x,y)=\frac{f^2}{\pi\gamma\eta} exp{\left(-\frac{x'^2+\gamma^2 y'^2}{2\sigma^2}\right)} exp{\left( j2\pi f x' + \phi \right)}     \\
-x' = \;\;\; xcos\theta+ysin\theta    \\
-y' = -xsin\theta+ycos\theta
-\end{split} \end{equation}
+{Students are asked to send their (zipped) solution to a professor's email address.}
 
+\subsubsection{Working code printouts}
 
-\begin{table}[t]
-\renewcommand{\arraystretch}{1.1}
-\caption{This is where the caption of the table goes.}
-\label{tab:runTime}
-\centering
-\footnotesize
-\vspace{-0.1in}
-\begin{tabular}{|l|c|}
-\hline
-Method				& 	Run Time (in milliseconds)\\
-\hline\hline
-Serial + PCA + KNN 		& 	19		\\
-Serial + LDA + KNN 		& 	24		\\
-Parallel + PCA + KNN 		& 	39		\\
-Parallel + LDA + KNN 		& 	42		\\
-PCA + CCA + KNN 		& 	19		\\
-LDA + CCA + KNN 		& 	21		\\
-JSRC 				& 	8406		\\
-SMDL				&	7882		\\
-DCA + KNN 			& 	19		\\
-\hline
-\end{tabular}
-\vspace{-0.1in}
+{Some professors are asking their students to print out their }{coding}{~assignments and deliver physically into their office or mailbox.}
+
+\subsubsection{Testing Scripts}
+
+{Some professors use semi-automated testing for their personal use or publicly. Scripts are usually just a set of various assignment usages and expected results. Therefore they need to be run and often evaluated manually. Usually either the solution or tests need to be adjusted to be applicable.}
+
+\begin{itemize}
+\item
+  {limited semi-automated testing}
+\item
+  {run and evaluated manually by professors, sometimes also by students}
+\end{itemize}
+
+\subsubsection{Testing Services}
+
+{Some professors tend to create their own proprietary online submission services, such as }{Progtest\footnote{http://progtest.fit.cvut.cz}}{. Students get an immediate evaluation upon (manual) submission and professors gain collective classification.}
+
+\begin{itemize}
+\item
+  {Students upload their solution into an online ``black box'' system.}
+\item
+  {The system evaluates their solution and provides results and submission history.}
+\item
+  {The system can limit submissions in time or attempts.}
+\item
+  {Score based on test results.}
+\item
+  {Bonus point for early delivery.}
+\item
+  {Plagiarism check.}
+\item
+  {Compilation test.}
+\end{itemize}
+
+\subsubsection{Online File Systems}
+
+{Online file systems, such as Google Drive or Workspace, MS OneDrive, Box, are meant to store and share documents and general files. For the sake of assignments, online file systems are commonly used strictly for submitting (uploading) solutions.}
+
+\begin{itemize}
+\item
+  {store and share files online,}
+\item
+  {synchronize with local filesystem (platform specific)}
+\end{itemize}
+
+\subsection{Learning Management Systems} \label{ssec:lms}
+
+{A learning management system\footnote{https://en.wikipedia.org/wiki/Learning\_management\_system} (LMS) is a software application for the administration, documentation, tracking, reporting, automation and delivery of educational courses, training programs, or learning and development programs.}
+
+\subsubsection{Moodle, moodle.com}
+
+{Moodle is a free and open-source learning management system (LMS) written in PHP and distributed under the GNU General Public License. Developed on pedagogical principles, Moodle is used for blended learning, distance education, flipped classroom and other e-learning projects in schools, universities, workplaces and other sectors.}
+
+\begin{itemize}
+\item
+  {More than 500 plugins that can be used for almost everything (including automatic testing, evaluation, gamification\ldots{})}
+\item
+  {Customizable}
+\item
+  {User-friendly interface}
+\item
+  {Ease of integration}
+\item
+  {Assessment and testing}
+\item
+  {Reporting and tracking progress}
+\end{itemize}
+
+\subsubsection{Blackboard, blackboard.com}
+
+{Blackboard is a Web-based course-management system designed to allow students and faculty to participate in classes delivered online or use online materials and activities to complement face-to-face teaching.}
+
+\begin{itemize}
+\item
+  {View course items and course announcements}
+\item
+  {Take assignments and tests}
+\item
+  {Participate in discussions}
+\item
+  {Interact with instructor and class}
+\item
+  {Assignment resubmission}
+\item
+  {Due date}
+\item
+  {Late assignment submission}
+\item
+  {Multiple attempts of submission}
+\item
+  {Review assignments online}
+\item
+  {Download assignments to review offline}
+\end{itemize}
+
+\subsection{Assignment Distribution Platforms} \label{ssec:adp}
+
+{One of the most important sections is related to assignment distribution by design. }{However only a certain part is dedicated to actually }{coding}{~assignments. Therefore they may or may not be sufficient according to actual needs (below).}
+
+\subsubsection{GitHub Classroom, classroom.github.com}
+
+{GitHub Classroom is a teacher-facing tool that uses the GitHub API to enable the GitHub workflow for education. You create an Assignment with starter code and directions, send along one link, and students get their own ``sandbox'' copy of the repo to get started.}
+
+\begin{itemize}
+\item
+  {Automates repository creation and access control}
+\item
+  {Making it easy to distribute starter code and collect assignments on GitHub}
+\item
+  {One organization can have more classrooms}
+\item
+  {Access control (TAs, students\ldots{})}
+\item
+  {Inviting students by}
+\end{itemize}
+
+\begin{itemize}
+\item
+  {Link to a learning management system (LMS) and import a roster}
+\item
+  {Upload a local CSV file with student information}
+\item
+  {Enter student names or IDs into a text field (one on each line)}
+\end{itemize}
+
+\begin{itemize}
+\item
+  {CI, autograding by tests (GitHub Actions)}
+\item
+  {Teacher can review assignments (statistics)}
+\item
+  {Group assignments}
+\end{itemize}
+
+\subsubsection{Google Classroom, classroom.google.com}
+
+{GC offers teachers the ability to differentiate assignments, include videos and web pages into lessons, and create collaborative group assignments. Through Classroom, teachers are easily able to differentiate instruction for learners}
+
+\begin{itemize}
+\item
+  {assignments, quizzes, and discussion questions, materials}
+\item
+  {using Google products (doc, sheets, presentations\ldots{}) or custom attachments}
+\item
+  {originality reports use the power of Google Search to help students properly integrate external inspiration into their writing}
+\item
+  {compare student-to-student matches (documents) against your domain-owned repository}
+\item
+  {integration with Google Drive}
+\item
+  {email to selected students}
+\end{itemize}
+
+\subsection{Programming Skill Improving Platforms} \label{ssec:psip}
+
+{There are services that help to improve your programming skills. They are often used to build a certain score (such as SOF), compete with others for more efficient solutions or even to participate in a company hiring challenges. Secondly, there could be modifications for specific teaching purposes.}
+
+\subsubsection{HackerRank for School}
+
+{HackerRank\footnote{https://www.hackerrank.com/products/school/} is a place where programmers from all over the world come together to solve problems in a wide range of Computer Science domains such as algorithms, machine learning, or artificial intelligence, as well as to practice different programming paradigms like functional programming.}
+
+\begin{itemize}
+\item
+  {Simplify how you create, manage and grade programming assignments.}
+\item
+  {Invite students to test and submit their code in a true coding environment.}
+\item
+  {Auto grade and evaluate student performance.}
+\item
+  {Our plagiarism detector will flag any submission that is \textgreater{} 70\% similar to }{another}{~students.}
+\item
+  {dashboard}
+\item
+  {assignment prototypes and libraries}
+\item
+  {optional due dates}
+\item
+  {competitions}
+\item
+  {live audio/video chat}
+\item
+  {review including plagiarism}
+\end{itemize}
+
+\subsubsection{HackerEarth, hackerearth.com}
+
+{HackerEarth provides enterprise software that helps organisations with their technical hiring needs. HackerEarth is used by organizations for technical skill assessment and remote video interviewing. HackerEarth is known for having conducted 1000+ hackathons and 10,000+ programming challenges.}
+
+\begin{itemize}
+\item
+  {Practice programming, prepare for interviews and level up coding skills}
+\item
+  {Remotely assess, interview, and hire developers across all roles based on skills}
+\item
+  {Host virtual hackathons and bring together people with diverse skills and solve business challenges}
+\end{itemize}
+
+\subsection{Interactive Notebooks} \label{ssec:notebooks}
+
+{Online interactive notebooks usually provide a specific environment for a certain (limited) purpose or language. They could be considered a very convenient replacement for editors in a combination with tools and services (such as compilation, available storage, RAM and CPU).}
+
+\subsubsection{Zybook, zybooks.com}
+
+{A zyBook is web-native interactive content that helps students learn challenging topics, with auto-grading that saves instructors time and leads to better-prepared students in class.}
+
+\begin{itemize}
+\item
+  {Questions, embedded coding tools, animations, interactive tools}
+\item
+  {Coding statements or short coding blocks}
+\item
+  {Auto-grading (testing)}
+\item
+  {Currently supporting Java, Python, C, C++, MATLAB®, and Web Programming (HTML/CSS/JavaScript)}
+\end{itemize}
+
+\subsubsection{Overleaf, overleaf.com}
+
+{Overleaf is a collaborative cloud-based LaTeX editor used for writing, editing and publishing scientific documents. It partners with a wide range of scientific publishers to provide official journal LaTeX templates, and direct submission links.}
+
+\begin{itemize}
+\item
+  {Collaboration}
+\item
+  {History of changes}
+\item
+  {Online templates}
+\item
+  {Online preview}
+\item
+  {Offline support}
+\item
+  {Sync with Dropbox / GitHub}
+\end{itemize}
+
+\subsubsection{Google Colab, colab.research.google.com}
+
+{Colaboratory, or ``Colab'' for short, is a product from Google Research. Colab allows anybody to write and execute arbitrary python code through the browser, and is especially well suited to machine learning, data analysis and education.}
+
+\begin{itemize}
+\item
+  {write and execute arbitrary python code through the browser}
+\item
+  {History}
+\item
+  {Store code on GitHub / Gist}
+\end{itemize}
+
+\subsubsection{WolframAlpha, wolframalpha.com}
+
+{WolframAlpha is a computational knowledge engine or answer engine developed by WolframAlpha LLC, a subsidiary of Wolfram Research. It is an online service that answers factual queries directly by computing the answer from externally sourced "curated data", rather than providing a list of documents or web pages that might contain the answer, as a search engine might.}
+
+\begin{itemize}
+\item
+  {Linguistic Analysis}
+\item
+  {Curated Data. 10+ trillion pieces of data from primary sources with continuous updating}
+\item
+  {Dynamic Computation. 50,000+ types of algorithms and equations}
+\item
+  {Computed Presentation. 5,000+ types of visual and tabular output}
+\end{itemize}
+
+\section{Web 2.0 Concepts Consideration} \label{sec:web20}
+
+{One of the less common techniques of requirement gathering is derived from so called Web 2.0\footnote{https://en.wikipedia.org/wiki/Web\_2.0} AKA ``participative'' or ``social web''. For individual principles consider specific use within the domain being explored.}
+
+\begin{itemize}
+  \item Search
+    \begin{itemize}
+    \item Search within the project’s files.
+    \end{itemize}
+  \item Linking
+    \begin{itemize}
+    \item Provide and allow linking to a specific file or its part, modification, history, issue / task.
+    \end{itemize}
+  \item Authoring
+    \begin{itemize}
+    \item Create or modify a content, such as instructions, modification descriptions, issues, documentation.
+    \end{itemize}
+  \item Tagging
+    \begin{itemize}
+    \item Use tags to distinguish different types of content, such as issues to be assignments, bonus questions, errors.
+    \item Allow tag filtering.
+    \end{itemize}
+  \item Extensions
+    \begin{itemize}
+    \item Platform, where you can execute any code.
+    \end{itemize}
+  \item Signals
+    \begin{itemize}
+    \item Use internal notifications.
+    \item External notifications, e.g. email.
+    \end{itemize}
+  \item API
+    \begin{itemize}
+    \item Make coding and testing available outside the UI in terminal or in the user’s favorite editor.
+    \end{itemize}
+\end{itemize}
+
+{Other web concepts gathered over years being sometimes attached to Web 2.0:}
+
+\begin{itemize}
+  \item Personalization
+  \begin{itemize}
+    \item n/a
+  \end{itemize}
+  \item Customization
+  \begin{itemize}
+    \item Setup preferred way to be notified.
+  \end{itemize}
+  \item Real-time web
+  \begin{itemize}
+    \item Show assignment status (test results) in real-time.
+  \end{itemize}
+  \item Crowdsourcing
+  \begin{itemize}
+    \item Allow users (including students and TAs) to suggest bug fixing and code/tests improvements.
+  \end{itemize}
+  \item Collaboration
+  \begin{itemize}
+    \item Allow students to work on projects in groups.
+  \end{itemize}
+  \item Wizards
+  \begin{itemize}
+    \item Offer templates to easily configure the basic environment.
+  \end{itemize}
+  \item Configurators
+  \begin{itemize}
+    \item n/a
+  \end{itemize}
+  \item Microdata
+  \begin{itemize}
+    \item n/a
+  \end{itemize}
+  \item Gamification
+  \begin{itemize}
+    \item Gain score as you go, e.g. 7/7 tests passing.
+    \item With public projects, publish collective scores to compare!
+  \end{itemize}
+\end{itemize}
+
+\section{Qualitative Survey through Interviews} \label{sec:qualitative}
+
+{Following are topics discussed with various potential users -\/- professors, TAs and various students. Derived from existing experience, real needs and preceding sections of the Research phase (the SOTA and web concepts).}
+
+{Resulting topics are roughly categorized for creators, TAs and solvers. Both creators and TA can be referred to as instructors and solvers are equivalent to students.}
+
+\subsection{Topics (mostly) for management} \label{ssec:management}
+
+{Following topics are crucial, yet obvious and almost rhetorical. Additionally they are meant for management rather than end users of the proposed system.}
+
+\begin{itemize}
+\item
+  {Let students gain a real world developer experience vs sticking to (any) proprietary solution?}
+\item
+  {Have a flexible adjustable (source-available) system or ``blackbox'' services being locked on a vendor?}
+\item
+  {Stop wasting resources on doing manually what can be automated and focus on what cannot.}
+\item
+  {Run the system on your own hardware storing data inside the institution.}
+\item
+  {Use an ADA compliant system to provide equal chances to people with various disabilities and prevent lawsuits.}
+\end{itemize}
+
+\subsection{Topics from solver's point of view} \label{ssec:solver}
+
+{Viewing \& participation}
+
+\begin{itemize}
+\item
+  {Class information to view and discuss/announce.}
+\item
+  {Customizable notifications about important events.}
+\item
+  {Live chatting in contrast with Zoom.}
+\item
+  {Searching within files/content/solutions.}
+\item
+  {Persistent linking.}
+\end{itemize}
+
+{Working on assignment}
+
+\begin{itemize}
+\item
+  {Comparisons and modification history viewing.}
+\item
+  {Working online/offline.}
+\item
+  {Work on solutions both online or locally.}
+\item
+  {Taking tests and throwing competitions.}
+\item
+  {Various interchangeable devices / tools / editors.}
+\item
+  {Remote support.}
+\item
+  {Labelling and filtering, e.g. tasks using issues.}
+\end{itemize}
+
+{Distribution}
+
+\begin{itemize}
+\item
+  {Files synchronization.}
+\item
+  {Processing assignment updates.}
+\item
+  {Due date and early/late submitting.}
+\item
+  {Submission confirmation.}
+\item
+  {Integrability (API).}
+\end{itemize}
+
+{Evaluation}
+
+\begin{itemize}
+\item
+  {Automated evaluation and e}{valuation on demand (online/manual).}
+\item
+  {Testing script.}
+\item
+  {Assignment resubmission.}
+\end{itemize}
+
+\subsection{Topics for teaching assistants} \label{ssec:ta}
+
+{View \& tracking}
+
+\begin{itemize}
+\item
+  {Modification history and comparison.}
+\item
+  {Viewing history online and locally.}
+\end{itemize}
+
+{Evaluation}
+
+\begin{itemize}
+\item
+  {Solution evaluation online / locally}{.}
+\item
+  {Collecting solutions and evaluation summary..}
+\item
+  {Collect solutions to a point in history (e.g. due date).}
+\end{itemize}
+
+{Integration \& support}
+
+\begin{itemize}
+\item
+  {Integrability on input.}
+\item
+  {Integrability on output.}
+\item
+  {Platform independence.}
+\item
+  {Providing remote support.}
+\item
+  {Integrate third party software (e.g. linting).}
+\end{itemize}
+
+\subsection{Topics for professors} \label{ssec:prof}
+
+{Creation}
+
+\begin{itemize}
+\item
+  {Configuration and templates.}
+\item
+  {External editors integration.}
+\item
+  {Scale of coding assignments.}
+\item
+  {Language and syntax support.}
+\item
+  {Group assignments.}
+\end{itemize}
+
+{Distribution}
+
+\begin{itemize}
+\item
+  {Relation between an assignment and the working solution.}
+\item
+  {Assignment distribution to and from students.}
+\item
+  {Different assignment versions across semesters.}
+\item
+  {Forms of registering students to assignments.}
+\end{itemize}
+
+{Scoring}
+
+\begin{itemize}
+\item
+  {Automatic scoring based on evaluation.}
+\item
+  {Bonus/penalty based on early/late delivery.}
+\item
+  {Plagiarism check.}
+\item
+  {Hidden (additional) testing.}
+\end{itemize}
+
+\section{Quantitative Survey through Questionnaires} \label{sec:quantitative}
+
+{Based on topics from the qualitative survey (above) a list of features has been created and structured according to similar categories for solvers and instructors.}
+
+\begin{itemize}
+\item
+  {AMS Feature Survey}
+\end{itemize}
+
+{The full list of around 60 features is being tested on the following 4 levels of necessity (plus indifference). All answers in the form are optional and the form ends with a short description of the participant.}
+
+\begin{itemize}
+\item
+  {Indifferent}
+\item
+  {Must have}
+\item
+  {Should have}
+\item
+  {Nice to have}
+\end{itemize}
+
+{The form has been tested on various participants and adjusted accordingly. The final version is available for anyone else to fill up in any time.}
+
+\section{Qualitative Requirements} \label{sec:qual}
+
+\subsection{Must have} \label{ssec:qual-must}
+
+\begin{itemize}
+\item
+  {{[}QR1{]} Industry standard environments, concepts and tools.}
+\item
+  {{[}QR2{]} }{Flexible adjustable (source-available) system.}
+\item
+  {{[}QR3{]} Fill-scale }{automation including continuous integration.}
+\item
+  {{[}QR4{]} }{Installable on your own hardware storing data inside the institution.}
+\item
+  {{[}QR5{]} ADA compliance.}
+\item
+  {{[}QR6{]} Running platform independence (GitHub, GitLab, other).}
+\item
+  {{[}QR7{]} User environment independence (OS, editor, browser, device).}
+\item
+  {{[}QR8{]} Integrability, AKA full-scale API.}
+\item
+  {{[}QR9{]} Multipurpose tasks (questions, essays, coding).}
+\item
+  {{[}QR10{]} Multiple syntax / language support (Markdown, LaTeX, Java).}
+\end{itemize}
+
+\section{Functional Requirements} \label{sec:func}
+
+\subsection{Must have} \label{ssec:func-must}
+
+\begin{itemize}
+\item
+  {{[}FR1{]} Automatic assignment distribution to and from students.}
+\item
+  {{[}FR2{]} Comparisons and modification history online and locally.}
+\item
+  {{[}FR3{]} Work on solutions both online or locally.}
+\item
+  {{[}FR4{]} Conceptual and traceable remote support.}
+\item
+  {{[}FR5{]} Automated evaluation.}
+\item
+  {{[}FR6{]} Processing assignment updates.}
+\item
+  {{[}FR7{]} Files synchronization on demand and submission confirmation.}
+\item
+  {{[}FR8{]} Evaluation on demand online and locally.}
+\item
+  {{[}FR9{]} Collecting solutions and evaluation summary.}
+\item
+  {{[}FR10{]} Plagiarism check across individual solutions.}
+\end{itemize}
+
+\subsection{Should have} \label{ssec:func-should}
+
+\begin{itemize}
+\item
+  {Due date and early/late submitting.}
+\item
+  {Class information to view and discuss/announce.}
+\item
+  {Taking tests and throwing competitions.}
+\item
+  {Testing script.}
+\item
+  {Assignment resubmission.}
+\item
+  {Collect solutions to a point in history (e.g. due date).}
+\item
+  {Group assignments.}
+\item
+  {Relation between an assignment and the working solution.}
+\item
+  {Bonus/penalty based on early/late delivery.}
+\item
+  {Hidden (additional) testing.}
+\item
+  {Integrability (API).}
+\end{itemize}
+
+\subsection{Nice to have} \label{ssec:func-nth}
+
+\begin{itemize}
+\item
+  {Searching within files/content/solutions.}
+\item
+  {Customizable notifications about important events.}
+\item
+  {Live chatting in contrast with Zoom.}
+\item
+  {Persistent linking.}
+\item
+  {Integrate third party software (e.g. linting).}
+\item
+  {Configuration and templates.}
+\item
+  {Different assignment versions across semesters.}
+\item
+  {Automatic scoring based on evaluation.}
+\item
+  {Labelling and filtering, e.g. tasks using issues.}
+\end{itemize}
+
+\section{SOTA Evaluation against Requirements} \label{sec:eval}
+
+{For the sake of evaluation tables, following abbreviations are used:}
+
+\begin{itemize}
+\item
+  {{[}MDM{]} Manual Distribution Methods}
+\item
+  {{[}MOD{]} Moodle}
+\item
+  {{[}BB{]} BlackBoard}
+\item
+  {{[}GHC{]} GitHub Classroom}
+\item
+  {{[}GCL{]} Google Classroom}
+\item
+  {{[}HRfS{]} HackerRank for School}
+\item
+  {{[}HE{]} HackerEarth}
+\item
+  {{[}ZB{]} ZyBook}
+\item
+  {{[}OL{]} OverLeaf}
+\item
+  {{[}CLB{]} Google Colab}
+\item
+  {{[}WA{]} WolframAlpha}
+\item
+  {{[}AMS{]} Assignment Management System (this project)}
+\end{itemize}
+
+\subsection{Qualitative Requirements {[}Must have{]}} \label{ssec:eval-qual}
+
+\begin{table}[H]
+    \centering
+    \bgroup
+    \def\arraystretch{1.5}
+    \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
+    \hline
+         & QR1 & QR2 & QR3 & QR4 & QR5 & QR6 & QR7 & QR8 & QR9 & QR10 \\ \hline
+        MDM & × & v & × & v & × & × & v & × & × & × \\ \hline
+        MOD & × & v & v & v & × & × & ? & v & ? & × \\ \hline
+        BB & × & × & × & × & × & × & ? & × & × & × \\ \hline
+        GHC & v & × & v & × & ? & × & v & × & v & v \\ \hline
+        GCL & × & × & ? & × & ? & × & v & v & × & × \\ \hline
+        HRfS & × & × & × & × & × & × & × & ? & × & × \\ \hline
+        HE & × & × & × & × & × & × & × & ? & × & × \\ \hline
+        ZB & × & × & × & × & × & × & × & × & × & × \\ \hline
+        OL & × & × & × & × & × & × & v & v & × & × \\ \hline
+        CLB & × & × & × & × & × & × & v & × & × & × \\ \hline
+        WA & × & × & × & × & × & × & v & × & × & × \\ \hline
+        AMS & v & v & v & v & v & v & v & v & v & v \\ \hline
+    \end{tabular}
+    \egroup
+    \caption{Qualitative Requirements Comparison}
 \end{table}
 
+\subsection{Functional Requirements {[}Must have{]}} \label{ssec:eval-func}
 
-
-
-\vspace{0.2in}
-\section{Section Title}\label{sec:foo}
-
-This is an example to show how to insert sections in your chapter.
-
-
-
-\vspace{0.2in}
-\subsection{SubSection Title}\label{sec:bar}
-
-This is an example of a sub-section.
-Table \ref{tab:runTime} is just an example to show how to insert tables.
-
-
-
-\vspace{0.2in}
-\subsubsection{SubSubSection Title}
-
-This is an example of a sub-sub-section, and another Table \ref{tab:wvu}.
-
-
-
-\begin{table}[h]
-\renewcommand{\arraystretch}{1.1}
-\caption{Rank-1 recognition rates for multimodal fusion of face, ear and profile face biometrics in WVU database.}
-\label{tab:wvu}
-\centering
-\footnotesize
-\vspace{-0.1in}
-\begin{tabular}{|l|c|c|c|}
-\hline
-\diagbox{Method}{Modality}	& Face+Ear		& Ear+Profile	& \begin{tabular}[x]{@{}c@{}}Face+Ear\\+Profile\end{tabular}	\\
-\hline \hline
-Serial + PCA + KNN		& $89.14 \pm 1.15$ 	& $89.46 \pm 1.13$	& $92.28 \pm 1.11$ 	\\
-Serial + LDA + KNN		& $94.23 \pm 1.02$ 	& $95.14 \pm 1.20$	& $95.14 \pm 1.04$ 	\\
-Parallel + PCA + KNN		& $90.71 \pm 2.05$ 	& $90.61 \pm 1.86$	& 	-		\\
-Parallel + LDA + KNN		& $93.38 \pm 1.66$ 	& $93.13 \pm 1.67$	& 	-		\\
-PCA + CCA/MCCA + KNN		& $94.10 \pm 0.87$ 	& $94.34 \pm 0.57$	& $97.74 \pm 0.54$ 	\\
-LDA + CCA/MCCA + KNN		& $94.44 \pm 0.88$ 	& $94.89 \pm 0.54$	& $97.86 \pm 0.49$ 	\\
-JSRC				& $96.20 \pm 0.52$	& $97.74 \pm 0.42$	& $98.74 \pm 0.32$	\\
-SMDL				& $97.24 \pm 0.48$	& $97.97 \pm 0.42$	& $99.20 \pm 0.24$	\\
-DCA/MDCA + KNN			& $98.56 \pm 0.15$ 	& $99.38 \pm 0.08$ 	& $99.85 \pm 0.03$  	\\
-\hline
-\end{tabular}
+\begin{table}[H]
+    \centering
+    \bgroup
+    \def\arraystretch{1.5}
+    \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
+    \hline
+         & FR1 & FR2 & FR3 & FR4 & FR5 & FR6 & FR7 & FR8 & FR9 & FR10 \\ \hline
+        MDM & × & × & × & × & × & × & × & × & × & × \\ \hline
+        MOD & ? & × & ? & v & v & × & v & × & ? & × \\ \hline
+        BB & × & × & ? & × & × & × & v & × & × & × \\ \hline
+        GHC & v & v & v & v & v & ? & v & ? & ? & × \\ \hline
+        GCL & v & × & v & v & v & × & v & × & ? & × \\ \hline
+        HRfS & v & × & × & v & v & × & v & × & ? & v \\ \hline
+        HE & v & × & × & × & v & × & v & × & ? & × \\ \hline
+        ZB & v & × & × & × & v & × & v & × & ? & × \\ \hline
+        OL & × & × & v & × & × & × & v & × & × & × \\ \hline
+        CLB & × & × & v & × & × & × & v & × & × & × \\ \hline
+        WA & × & × & v & × & × & × & v & × & × & × \\ \hline
+        AMS & v & v & v & v & v & v & v & v & v & v \\ \hline
+    \end{tabular}
+    \egroup
+    \caption{Functional Requirements Comparison}
 \end{table}
