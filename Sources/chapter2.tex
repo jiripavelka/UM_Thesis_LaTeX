@@ -1,10 +1,10 @@
 \chapter{Research Phase} \label{chap:research}
 
-{The research phase sums up the current state of the are beginning with current practices. Adding a set of so-called Web 2.0 concepts the next sections sums up various features into topics. Qualitative surveys (on those topics) with professors, students and other participants result in sets of features, summed up in a quantitative survey on levels of necessity.}
+{The research chapter sums up the current state of the are beginning with current practices. Adding a set of so-called Web 2.0 concepts the next sections sums up various features into topics. Qualitative surveys (on those topics) with professors, students and other participants result in sets of features, summed up in a quantitative survey on levels of necessity.}
 
 {Based on the survey, two sets of qualitative and functional requirements were established. The last section contains a comparison of 2 × 10 most crucial qualitative and requirements across individual approaches from the state of the art chapter.}
 
-\section{State of the Art} \label{sec:sota}
+\section{State of the Art (SOTA)} \label{sec:sota}
 
 {There are multiple methods to distribute assignments between professors and students (instructors and solvers). Even with manual distributions, there are certain features that may be considered during surveys.}
 
@@ -370,7 +370,7 @@
 
 \section{Qualitative Survey through Interviews} \label{sec:qualitative}
 
-{Following are topics discussed with various potential users -\/- professors, TAs and various students. Derived from existing experience, real needs and preceding sections of the Research phase (the SOTA and web concepts).}
+{Following are topics discussed with various potential users -\/- professors, TAs and various students. Derived from existing experience, actual needs and preceding sections of the Research chapter (the SOTA and web concepts).}
 
 {Resulting topics are roughly categorized for creators, TAs and solvers. Both creators and TA can be referred to as instructors and solvers are equivalent to students.}
 
@@ -393,7 +393,7 @@
 
 \subsection{Topics from solver's point of view} \label{ssec:solver}
 
-{Viewing \& participation}
+\subsubsection{Viewing \& participation}
 
 \begin{itemize}
 \item
@@ -408,7 +408,7 @@
   {Persistent linking.}
 \end{itemize}
 
-{Working on assignment}
+\subsubsection{Working on assignment}
 
 \begin{itemize}
 \item
@@ -427,7 +427,7 @@
   {Labelling and filtering, e.g. tasks using issues.}
 \end{itemize}
 
-{Distribution}
+\subsubsection{Distribution}
 
 \begin{itemize}
 \item
@@ -442,7 +442,7 @@
   {Integrability (API).}
 \end{itemize}
 
-{Evaluation}
+\subsubsection{Evaluation}
 
 \begin{itemize}
 \item
@@ -455,7 +455,7 @@
 
 \subsection{Topics for teaching assistants} \label{ssec:ta}
 
-{View \& tracking}
+\subsubsection{View \& tracking}
 
 \begin{itemize}
 \item
@@ -464,7 +464,7 @@
   {Viewing history online and locally.}
 \end{itemize}
 
-{Evaluation}
+\subsubsection{Evaluation}
 
 \begin{itemize}
 \item
@@ -475,7 +475,7 @@
   {Collect solutions to a point in history (e.g. due date).}
 \end{itemize}
 
-{Integration \& support}
+\subsubsection{Integration \& support}
 
 \begin{itemize}
 \item
@@ -492,7 +492,7 @@
 
 \subsection{Topics for professors} \label{ssec:prof}
 
-{Creation}
+\subsubsection{Creation}
 
 \begin{itemize}
 \item
@@ -507,7 +507,7 @@
   {Group assignments.}
 \end{itemize}
 
-{Distribution}
+\subsubsection{Distribution}
 
 \begin{itemize}
 \item
@@ -520,7 +520,7 @@
   {Forms of registering students to assignments.}
 \end{itemize}
 
-{Scoring}
+\subsubsection{Scoring}
 
 \begin{itemize}
 \item
@@ -537,11 +537,6 @@
 
 {Based on topics from the qualitative survey (above) a list of features has been created and structured according to similar categories for solvers and instructors.}
 
-\begin{itemize}
-\item
-  {AMS Feature Survey}
-\end{itemize}
-
 {The full list of around 60 features is being tested on the following 4 levels of necessity (plus indifference). All answers in the form are optional and the form ends with a short description of the participant.}
 
 \begin{itemize}
@@ -557,9 +552,11 @@
 
 {The form has been tested on various participants and adjusted accordingly. The final version is available for anyone else to fill up in any time.}
 
-\section{Qualitative Requirements} \label{sec:qual}
+\section{Qualitative and Functional Requirements} \label{sec:qual}
 
-\subsection{Must have} \label{ssec:qual-must}
+Based on several requirement gathering techniques \cite{young2002recommended}, lists of qualitative and functional requirements have been derived. Both requirement types were evaluated on necessity levels -- "MUST HAVE", "SHOULD HAVE" and "NICE TO HAVE" (NTH). An online form has been introduced to support the research. For complete list of features, see APPENDIX \ref{apx:survey}.
+
+\subsection{Qualitative requirements {[}MUST HAVE{]}} \label{ssec:qual-must}
 
 \begin{itemize}
 \item
@@ -584,9 +581,7 @@
   {{[}QR10{]} Multiple syntax / language support (Markdown, LaTeX, Java).}
 \end{itemize}
 
-\section{Functional Requirements} \label{sec:func}
-
-\subsection{Must have} \label{ssec:func-must}
+\subsection{Functional Requirements {[}MUST HAVE{]}} \label{ssec:func-must}
 
 \begin{itemize}
 \item
@@ -611,7 +606,7 @@
   {{[}FR10{]} Plagiarism check across individual solutions.}
 \end{itemize}
 
-\subsection{Should have} \label{ssec:func-should}
+\subsection{Functional Requirements {[}SHOULD HAVE{]}} \label{ssec:func-should}
 
 \begin{itemize}
 \item
@@ -638,7 +633,7 @@
   {Integrability (API).}
 \end{itemize}
 
-\subsection{Nice to have} \label{ssec:func-nth}
+\subsection{Functional Requirements {[}NICE TO HAVE{]}} \label{ssec:func-nth}
 
 \begin{itemize}
 \item
@@ -661,9 +656,9 @@
   {Labelling and filtering, e.g. tasks using issues.}
 \end{itemize}
 
-\section{SOTA Evaluation against Requirements} \label{sec:eval}
+\section{SOTA Evaluation Against Requirements} \label{sec:eval}
 
-{For the sake of evaluation tables, following abbreviations are used:}
+{Following are two tables evaluating the "MUST HAVE" requirements both qualitative and functional. For the sake of evaluation tables, following abbreviations are used:}
 
 \begin{itemize}
 \item
@@ -692,8 +687,6 @@
   {{[}AMS{]} Assignment Management System (this project)}
 \end{itemize}
 
-\subsection{Qualitative Requirements {[}Must have{]}} \label{ssec:eval-qual}
-
 \begin{table}[H]
     \centering
     \bgroup
@@ -715,10 +708,8 @@
         AMS & v & v & v & v & v & v & v & v & v & v \\ \hline
     \end{tabular}
     \egroup
-    \caption{Qualitative Requirements Comparison}
+    \caption{Qualitative Requirements Evaluation}
 \end{table}
-
-\subsection{Functional Requirements {[}Must have{]}} \label{ssec:eval-func}
 
 \begin{table}[H]
     \centering
@@ -741,5 +732,5 @@
         AMS & v & v & v & v & v & v & v & v & v & v \\ \hline
     \end{tabular}
     \egroup
-    \caption{Functional Requirements Comparison}
+    \caption{Functional Requirements Evaluation}
 \end{table}

@@ -379,7 +379,7 @@
       \vspace{5mm}
       \begin{spacing}{1}
 	  { Thesis supervised by Professor \disssupervisor.\\
-	  No. of pages in text. (\pageref{LastPage})}
+	  No. of pages in text: \pageref{LastPage}}
       \end{spacing}}\hfill
       \vspace{18mm}
       \begin{spacing}
