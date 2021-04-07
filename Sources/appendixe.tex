@@ -1,0 +1,170 @@
+\chapter{Assignment Management System README}\label{assignment-management-system-readme}
+
+This script provides commands to \emph{distribute} coding assignments to solvers, \emph{evaluate} individual solutions and \emph{measure} similarities between each other.
+
+\section{Requirements}\label{requirements}
+
+\begin{itemize}
+\item
+  Bash, version 3.2 and later
+\item
+  Git, version 1.8.0 and later
+\item
+  GNU getopt
+\item
+  GNU sed
+\item
+  jq
+\item
+  go-md2man, optional
+\end{itemize}
+
+\section{Installation}\label{installation}
+
+\begin{itemize}
+\item
+  To install locally, simply clone this project and set an alias.
+
+\begin{verbatim}
+git clone https://github.com/InternetGuru/ams.git
+echo alias ams=\"$PWD/ams/ams\" >> ~/.bashrc
+source ~/.bashrc
+\end{verbatim}
+
+\item
+  For global installation, clone this project into shared folder and create a symbolic link.
+
+\begin{verbatim}
+sudo git clone https://github.com/InternetGuru/ams.git \
+  /usr/local/src
+sudo ln -s "/usr/local/src/ams/ams" /usr/local/share/ams
+\end{verbatim}
+
+\item
+  To install \texttt{man} documentation, run the following script. (optional)
+
+\begin{verbatim}
+sudo ./install.sh
+\end{verbatim}
+
+\end{itemize}
+
+\section{GitLab CI Usage}\label{gitlab-ci-usage}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Make sure you have your personal access token. On GitLab set \texttt{ACCESS\_TOKEN} variable into your root namespace.
+
+  \begin{itemize}
+  \item
+    E.g. into \texttt{umiami/george}
+  \end{itemize}
+\item
+  Navigate into the project and switch to the branch with assignment. Make sure the branch is protected.
+
+  \begin{itemize}
+  \item
+    E.g. umiami/george/csc220/lab01@fall20
+  \end{itemize}
+\item
+  To distribute the assignment to 3 test solvers, evaluate, collect and measure, add the following lines to your \texttt{.gitlab-ci.yml} file (create one if it doesn't exist).
+
+\begin{verbatim}
+include:
+  - 'https://raw.githubusercontent.com/InternetGuru/ams/dev/
+gitlab-stages.yml'
+
+variables:
+  AMS_EVALUATE: "always"
+  AMS_USERS: "solver1 solver2 solver3"
+  AMS_MOSSURL: "https://some.url/moss"
+\end{verbatim}
+
+  \begin{itemize}
+  \item
+    For other variables refer to documentation section.
+  \end{itemize}
+\item
+  The \texttt{ams\ evaluate} command runs automatically after each push. To execute other commands (\texttt{ams\ collect}, \texttt{ams\ distribute}, \texttt{ams\ measure}), trigger their pipeline manually. Make sure you trigger the pipeline on desired branch.
+\item
+  Display badges in \texttt{README.md} file with links to appropriate log files (evaluate process):
+
+\begin{verbatim}
+[![pipeline status](https://gitlab.com/${PROJECT}/badges/${BRANCH}
+/pipeline.svg)](https://gitlab.com/${PROJECT}/-/pipelines?ref=${BR
+ANCH})
+[![compile](https://gitlab.com/${PROJECT}/builds/artifacts/${BRAN
+CH}/raw/.results/compile.svg?job=evaluate)](https://gitlab.com/${P
+ROJECT}/-/jobs/artifacts/${BRANCH}/file/.results/compile.log?job=e
+valuate)
+[![checkstyle](https://gitlab.com/${PROJECT}/builds/artifacts/${BR
+ANCH}/raw/.results/checkstyle.svg?job=evaluate)](https://gitlab.co
+m/${PROJECT}/-/jobs/artifacts/${BRANCH}/file/.results/checkstyle.l
+og?job=evaluate)
+[![test](https://gitlab.com/${PROJECT}/builds/artifacts/${BRANCH}/
+raw/.results/test.svg?job=evaluate)](https://gitlab.com/${PROJECT}
+/-/jobs/artifacts/${BRANCH}/file/.results/test.log?job=evaluate)
+\end{verbatim}
+
+  \begin{itemize}
+  \item
+    Replace \texttt{\$\{PROJECT\}} with your actual project's link, e.g.~\texttt{umiami/george/csc220/lab01}.
+  \item
+    Replace \texttt{\$\{BRANCH\}} with an actual branch, e.g.~\texttt{master}.
+  \end{itemize}
+\end{enumerate}
+
+\section{GitLab CI Variables}\label{gitlab-ci-variables}
+
+\begin{itemize}
+\item
+  \texttt{AMS\_SOLUTION:\ "BRANCH"}
+
+  \begin{itemize}
+  \item
+    Runs \texttt{ams\ collect} on the current project \texttt{BRANCH} and includes project from \texttt{BRANCH} among solutions to \texttt{ams\ measure} (default \texttt{master}).
+  \end{itemize}
+\item
+  \texttt{AMS\_DEADLINE:\ "DATE"}
+
+  \begin{itemize}
+  \item
+    See \texttt{-\/-deadline} option in \texttt{ams\ collect} documentation.
+  \end{itemize}
+\item
+  \texttt{AMS\_EDITABLE:\ "PATTERN"}
+
+  \begin{itemize}
+  \item
+    See \texttt{-\/-editable} option in \texttt{ams\ collect} documentation.
+  \end{itemize}
+\item
+  \texttt{AMS\_EVALUATE:\ "WHEN"}
+
+  \begin{itemize}
+  \item
+    Integrate \texttt{ams\ evaluate} as \texttt{always} or \texttt{manual} (default) job.
+  \end{itemize}
+\item
+  \texttt{AMS\_USERS:\ "USERS"}
+
+  \begin{itemize}
+  \item
+    See \texttt{ams\ distribution} documentation (default value is current user). Merges its values with \texttt{AMS\_USERS} file if exists. Values can be separated by any white-spaces or commas.
+  \end{itemize}
+\item
+  \texttt{AMS\_ISSUES:\ "LABEL"}
+
+  \begin{itemize}
+  \item
+    See \texttt{-\/-process-issues} option in \texttt{ams\ distribute} documentation (default current branch).
+  \end{itemize}
+\item
+  \texttt{AMS\_MOSSURL:\ "URL"}
+
+  \begin{itemize}
+  \item
+    CI accessible \texttt{URL} to download Moss script for \texttt{ams\ measure}.
+  \end{itemize}
+\end{itemize}

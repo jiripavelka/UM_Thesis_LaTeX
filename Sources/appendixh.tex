@@ -1,0 +1,374 @@
+\chapter{AMS Script User Manuals}\label{chap:ams-script-documentation}
+
+\section{AMS 1 2021-02-16 GNU}\label{ams-1-2021-02-16-gnu-user-manuals}
+
+\subsection{NAME}\label{name}
+
+AMS - coding assignment handling
+
+\subsection{SYNOPSIS}\label{synopsis}
+
+\texttt{ams} {[}\texttt{-w}{]} \texttt{\textless{}command\textgreater{}} {[}\texttt{\textless{}args\textgreater{}}{]}
+
+\subsection{DESCRIPTION}\label{description}
+
+Provides commands to \emph{distribute} coding assignments to solvers, \emph{evaluate} individual solutions and \emph{measure} similarities between each other.
+
+\subsection{OPTIONS}\label{options}
+
+\begin{itemize}
+\item
+  \texttt{-w}, \texttt{-\/-working-dir\ WORKING\_DIR}
+
+  \begin{itemize}
+  \item
+    Run as if \texttt{\$\{SCRIPT\}} was started in \texttt{WORKING\_DIR} instead of the current working directory.
+  \end{itemize}
+\end{itemize}
+
+\subsection{COMMANDS}\label{commands}
+
+These are common ams commands used in various situations:
+
+\begin{itemize}
+\item
+  \texttt{collect}: Download repositories and evaluate against source tests.
+\item
+  \texttt{distribute}: Create or update user repositories with files from source project.
+\item
+  \texttt{evaluate}: Verify Java project and generate badges for README.
+\item
+  \texttt{help}: Display this usage.
+\item
+  \texttt{measure}: Compute software similarities between projects using Moss script.
+\end{itemize}
+
+\subsection{EXIT STATUS}\label{exit-status}
+
+\begin{itemize}
+\item
+  1: Other error.
+\end{itemize}
+
+\subsection{AUTHOR}\label{author}
+
+George J. Pavelka george@internetguru.io
+
+\subsection{SEE ALSO}\label{see-also}
+
+\texttt{ams-collect}(1), \texttt{ams-distribute}(1), \texttt{ams-evaluate}(1), \texttt{ams-measure}(1)
+
+\section{AMS-COLLECT 1 2021-03-01 GNU}\label{ams-collect-1-2021-03-01-gnu-user-manuals}
+
+\subsection{NAME}\label{name-1}
+
+AMS-Collect - evaluate repositories against source tests
+
+\subsection{SYNOPSIS}\label{synopsis-1}
+
+\texttt{ams\ collect} {[}\texttt{-hdenops}{]}
+
+\subsection{DESCRIPTION}\label{description-1}
+
+Downloads all repositories from a \texttt{NAMESPACE} matching given \texttt{PREFIX}. Runs \texttt{ams\ evaluate} on working project in \texttt{WORKING\_DIR} replacing only editable files from individual solution repositories.
+
+\subsection{OPTIONS}\label{options-1}
+
+\begin{itemize}
+\item
+  \texttt{-h}, \texttt{-\/-help}
+
+  \begin{itemize}
+  \item
+    Display usage.
+  \end{itemize}
+\item
+  \texttt{-d}, \texttt{-\/-deadline\ DATE}
+
+  \begin{itemize}
+  \item
+    Checkout each repository to the latest commit \emph{pushed} before \texttt{DATE}. \texttt{DATE} must be in ISO 8601 format, e.g.~\texttt{2021-03-05} or \texttt{2021-03-05T00:41:21+00:00}. Uses latest existing commits by default.
+  \end{itemize}
+\item
+  \texttt{-e}, \texttt{-\/-editable\ FILE...}
+
+  \begin{itemize}
+  \item
+    In the source project, replace specific \texttt{FILE(s)} from each repository preserving other files that are not supposed to be edited. Default value is \texttt{src/main/*.java}.
+  \end{itemize}
+\item
+  \texttt{-n}, \texttt{-\/-dry-run}
+
+  \begin{itemize}
+  \item
+    Only process option validation. Would not proceed with cloning repositories and evaluation.
+  \end{itemize}
+\item
+  \texttt{-o}, \texttt{-\/-output-dir\ DIR}
+
+  \begin{itemize}
+  \item
+    Store collected repositories and results in \texttt{DIR}. Uses \texttt{mktemp} by default.
+  \end{itemize}
+\item
+  \texttt{-p}, \texttt{-\/-prefix\ PREFIX}
+
+  \begin{itemize}
+  \item
+    From given \texttt{NAMESPACE} (below) add only projects with matching \texttt{PREFIX} (empty by default).
+  \end{itemize}
+\item
+  \texttt{-s}, \texttt{-\/-namespace\ NAMESPACE}
+
+  \begin{itemize}
+  \item
+    Add projects from given \texttt{NAMESPACE}.
+  \end{itemize}
+\end{itemize}
+
+\subsection{EXIT STATUS}\label{exit-status-1}
+
+\begin{itemize}
+\item
+  1: Other error.
+\item
+  2: Invalid options or arguments.
+\item
+  3: Remote namespace (group) not found.
+\end{itemize}
+
+\subsection{AUTHOR}\label{author-1}
+
+George J. Pavelka george@internetguru.io
+
+\subsection{SEE ALSO}\label{see-also-1}
+
+\texttt{ams}(1), \texttt{ams-distribute}(1), \texttt{ams-evaluate}(1), \texttt{ams-measure}(1)
+
+\section{AMS-DISTRIBUTE 1 2021-02-14 GNU}\label{ams-distribute-1-2021-02-14-gnu-user-manuals}
+
+\subsection{NAME}\label{name-2}
+
+AMS-Distribute - distribute an assignment among users
+
+\subsection{SYNOPSIS}\label{synopsis-2}
+
+\texttt{ams\ distribute} {[}\texttt{-ahilnps}{]}
+
+\subsection{DESCRIPTION}\label{description-2}
+
+This script distributes files from \texttt{WORKING\_DIR} into \texttt{NAMESPACE/{[}PREFIX{]}USERNAME} for each \texttt{USERNAME} from stdin. For existing projects creates merge requests if files in \texttt{WORKING\_DIR} have changed.
+
+\subsection{OPTIONS}\label{options-2}
+
+\begin{itemize}
+\item
+  \texttt{-a}, \texttt{-\/-assign\ WHEN}
+
+  \begin{itemize}
+  \item
+    Assign developer role to users for newly created projects and assign users to issues \texttt{always}, \texttt{never}, or according to account existence \texttt{auto} (default).
+  \end{itemize}
+\item
+  \texttt{-h}, \texttt{-\/-help}
+
+  \begin{itemize}
+  \item
+    Display usage.
+  \end{itemize}
+\item
+  \texttt{-i}, \texttt{-\/-process-issues\ LABEL}
+
+  \begin{itemize}
+  \item
+    Copy issues marked with \texttt{LABEL} into destination repositories. Note: \\ \texttt{WORKING\_DIR} must be a GitLab project.
+  \end{itemize}
+\item
+  \texttt{-l}, \texttt{-\/-update-links}
+
+  \begin{itemize}
+  \item
+    Replace all occurrences of the assignment project's remote URL and its current branch with destination repository remote URL and its main branch in \texttt{README.md}. Note: \texttt{WORKING\_DIR} must be a GitLab project.
+  \end{itemize}
+\item
+  \texttt{-n}, \texttt{-\/-dry-run}
+
+  \begin{itemize}
+  \item
+    Only process options and stdin validation. Would not proceed with create or update user repositories.
+  \end{itemize}
+\item
+  \texttt{-o}, \texttt{-\/-output-dir\ DIR}
+
+  \begin{itemize}
+  \item
+    Store distributed repositories in DIR. Uses \texttt{mktemp} by default.
+  \end{itemize}
+\item
+  \texttt{-p}, \texttt{-\/-prefix\ PREFIX}
+
+  \begin{itemize}
+  \item
+    Prepend PREFIX in front of created repositories names. PREFIX is empty by default.
+  \end{itemize}
+\item
+  \texttt{-s}, \texttt{-\/-namespace\ NAMESPACE}
+
+  \begin{itemize}
+  \item
+    Distribute repositories into NAMESPACE instead of the current project's namespace.
+  \end{itemize}
+\end{itemize}
+
+\subsection{EXIT STATUS}\label{exit-status-2}
+
+\begin{itemize}
+\item
+  1: Other error.
+\item
+  2: Invalid options or arguments including empty or missing stdin.
+\item
+  3: Some (or all) invalid users.
+\end{itemize}
+
+\subsection{EXAMPLES}\label{examples-2}
+
+\begin{verbatim}
+echo "solver1 solver2 solver3" | ams distribute -l -p "lab01-" \ 
+-s "umiami/george/csc220/fall20"
+\end{verbatim}
+
+Given example distributes current directory into the following locations. The \texttt{-l} option updates links in README files.
+
+\begin{verbatim}
+umiami/george/csc220/fall20/lab01-solver1
+umiami/george/csc220/fall20/lab01-solver2
+umiami/george/csc220/fall20/lab01-solver3
+\end{verbatim}
+
+The following example does the same job dynamically. Assuming you are in a \texttt{lab01} folder on branch \texttt{fall20}.
+
+\begin{verbatim}
+grep 'AMS_USERS:' .gitlab-ci.yml | cut -d'"' -f2 | ams distribute -l \
+-p "$(basename $PWD)-" -s "umiami/george/csc220/$(git rev-parse \
+--abbrev-ref HEAD)"
+\end{verbatim}
+
+Calling the command dynamically is a number one prevention from accidentally distributing a different lab or even a working solution to all solvers. Different branch would create a separate namespace and different folder (lab) would distribute the assignment into appropriate lab repositories.
+
+\subsection{AUTHOR}\label{author-2}
+
+George J. Pavelka george@internetguru.io
+
+\subsection{SEE ALSO}\label{see-also-2}
+
+\texttt{ams}(1), \texttt{ams-collect}(1), \texttt{ams-evaluate}(1), \texttt{ams-measure}(1)
+
+\section{AMS-EVALUATE 1 2021-02-14 GNU}\label{ams-evaluate-1-2021-02-14-gnu-user-manuals}
+
+\subsection{NAME}\label{name-3}
+
+AMS-Evaluate - evaluate project and create status badges
+
+\subsection{SYNOPSIS}\label{synopsis-3}
+
+\texttt{ams\ evaluate}
+
+\subsection{DESCRIPTION}\label{description-3}
+
+Evaluates current project on compilation, coding style and automatic tests. Generates status files and colored summary badges. Stores log files to be displayed and linked, e.g.~from a \texttt{README} file.
+
+\subsection{EXIT STATUS}\label{exit-status-3}
+
+\begin{itemize}
+\item
+  1: Other error.
+\end{itemize}
+
+\subsection{AUTHOR}\label{author-3}
+
+George J. Pavelka george@internetguru.io
+
+\subsection{SEE ALSO}\label{see-also-3}
+
+\texttt{ams}(1), \texttt{ams-collect}(1), \texttt{ams-distribute}(1), \texttt{ams-measure}(1)
+
+\section{AMS-MEASURE 1 2021-02-14 GNU}\label{ams-measure-1-2021-02-14-gnu-user-manuals}
+
+\subsection{NAME}\label{name-4}
+
+AMS-Measure - measure software similarities using Moss script
+
+\subsection{SYNOPSIS}\label{synopsis-4}
+
+\texttt{ams\ measure} {[}\texttt{-hinps}{]}
+
+\subsection{DESCRIPTION}\label{description-4}
+
+Downloads all repositories from a \texttt{NAMESPACE} matching given \texttt{PREFIX} and measures software similarities between each other. Uses an assignment project in \texttt{WORKING\_DIR} as a base file (see Moss documentation). The link with evaluation results appears at the end of the script.
+
+\subsection{OPTIONS}\label{options-4}
+
+\begin{itemize}
+\item
+  \texttt{-h}, \texttt{-\/-help}
+
+  \begin{itemize}
+  \item
+    Display usage.
+  \end{itemize}
+\item
+  \texttt{-i}, \texttt{-\/-ignore}
+
+  \begin{itemize}
+  \item
+    Ignore non-existing namespaces (EXIT STATUS 3).
+  \end{itemize}
+\item
+  \texttt{-n}, \texttt{-\/-dry-run}
+
+  \begin{itemize}
+  \item
+    Only process option validation. Would not proceed with cloning repositories and Moss execution.
+  \end{itemize}
+\item
+  \texttt{-p}, \texttt{-\/-prefix\ PREFIX}
+
+  \begin{itemize}
+  \item
+    From given \texttt{NAMESPACE} (below) add only projects with matching \texttt{PREFIX} (empty by default).
+  \end{itemize}
+\item
+  \texttt{-s}, \texttt{-\/-namespace\ NAMESPACE}
+
+  \begin{itemize}
+  \item
+    Add projects from given \texttt{NAMESPACE}. May contain multiple values separated by space. Process all branches in project's namespace if missing or empty.
+  \end{itemize}
+\item
+  \texttt{-o}, \texttt{-\/-output-dir\ DIR}
+
+  \begin{itemize}
+  \item
+    Store measured repositories in DIR. Uses \texttt{mktemp} by default.
+  \end{itemize}
+\end{itemize}
+
+\subsection{EXIT STATUS}\label{exit-status-4}
+
+\begin{itemize}
+\item
+  1: Other error.
+\item
+  2: Invalid options or arguments.
+\item
+  3: Remote namespace (group) not found.
+\end{itemize}
+
+\subsection{AUTHOR}\label{author-4}
+
+George J. Pavelka george@internetguru.io
+
+\subsection{SEE ALSO}\label{see-also-4}
+
+\texttt{ams}(1), \texttt{ams-collect}(1), \texttt{ams-distribute}(1), \texttt{ams-evaluate}(1)

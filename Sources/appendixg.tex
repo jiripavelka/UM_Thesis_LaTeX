@@ -1,0 +1,187 @@
+\chapter{Lab02: Matrix}\label{lab02-matrix}
+
+This assignment project represents 2D matrices with two different constructors and several basic operations (methods). Note: The \texttt{Matrix} class represents \texttt{Matrix} objects, therefore its methods are not static. In order to call these methods, you must call them from an object of the \texttt{Matrix} class.
+
+\begin{itemize}
+\item
+  For the sake of this lab \textbf{you will be using terminal (CLI)}. Use shell compatible terminal, such as natively in Linux (Ubuntu) or in MAC OS. For Windows use Ubuntu for Windows or any other if you know what you're doing. Make sure you have \texttt{git} installed and available from the terminal.
+\item
+  This assignment is completed when all tests are passing.
+\end{itemize}
+
+Before you start working on the assignment, always make sure there is \textbf{no pending merge request}! You may refer to the AMS Tutorial for Solvers if you need.
+
+\section{CLI tutorial: Create local copy (one-time)}\label{cli-tutorial-create-local-copy-one-time}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Make sure you have your SSH key added in your GitLab account.
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    Create your local SSH key if you don't have one already. Run the following command in the terminal. \textbf{Do not rewrite your existing key if it exists!} If you are prompted to rewrite an existing key, say \texttt{no}. You may leave the passphrase empty or change/remove the passphrase anytime later.
+\begin{verbatim}
+ssh-keygen -f ~/.ssh/id_rsa
+\end{verbatim}
+  \item
+    Display the public key file and \textbf{copy its content into your clipboard}.
+\begin{verbatim}
+cat ~/.ssh/id_rsa.pub
+\end{verbatim}
+  \item
+    Navigate to your GitLab SSH keys settings.
+  \item
+    Paste the public key into \emph{Key} field and press \emph{Add key} button.
+  \end{enumerate}
+\item
+  Make sure you have your project cloned in your computer.
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    Navigate into your course folder, e.g.~\texttt{\textasciitilde{}/csc220}.
+\begin{verbatim}
+mkdir ~/csc220
+cd ~/csc220
+\end{verbatim}
+  \item
+    Clone the assignment repository into the current folder. Type \texttt{yes} if asked whether to continue.
+\begin{verbatim}
+git clone git@gitlab.com:umiami/george/csc220/lab02.git
+\end{verbatim}
+  \end{enumerate}
+\item
+  Make sure your name and email are set accordingly.
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    Verify git name and email information on your local environment by running the following commands. Use \texttt{-\/-global} option unless you know what you're doing.
+\begin{verbatim}
+git config --global user.name
+git config --global user.email
+\end{verbatim}
+  \item
+    If values are not set (outputs are empty) or you want to change them, add \textbf{your name and email} at the end of each command. E.g. if your name is ``John Doe'' and your email is ``johndoe@example.com''.
+\begin{verbatim}
+git config --global user.name "John Doe"
+git config --global user.email "johndoe@example.com"
+\end{verbatim}
+  \end{enumerate}
+\end{enumerate}
+
+\section{CLI tutorial: Modify a file routine}\label{cli-tutorial-modify-a-file-routine}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Navigate into the cloned repository.
+
+\begin{verbatim}
+cd ~/csc220/lab02-*
+\end{verbatim}
+\item
+  Always make sure your local repository is synchronized with GitLab before you start working!
+
+\begin{verbatim}
+git pull
+\end{verbatim}
+\item
+  Open the source file in your favorite editor, e.g.~\texttt{gedit}. Feel free to use any other (basic) editor you prefer, e.g.~VS Code, Sublime, Notepad++, Atom. You can open the file from your favorite editor directly.
+
+\begin{verbatim}
+gedit src/main/Matrix.java
+\end{verbatim}
+\item
+  Proceed modifications as instructed. For the first step in the lab part (the constructor), paste the following code into a proper place.
+
+\begin{verbatim}
+numRows = rowDim;
+numColumns = colDim;
+data = new int[numRows][numColumns];
+\end{verbatim}
+\item
+  Save changes, close the editor and double-check the current modification. For the first step in the lab part (below) you should see the three added lines. Make sure you like your modifications (including the indentation).
+
+\begin{verbatim}
+git diff
+\end{verbatim}
+\item
+  Make sure your project compiles and runs executing the following commands with no errors or warnings. Install Java JDK if the following commands are missing.
+
+\begin{verbatim}
+javac src/main/Matrix.java
+java -classpath src/main Matrix
+\end{verbatim}
+\item
+  Make sure all expected tests are passing. (optional)
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    Execute the following command. Install Maven if the following command is missing.
+\begin{verbatim}
+mvn test
+\end{verbatim}
+
+  \item
+    Look for a summary line. After the first step in the lab part (below) it should look like this:
+\begin{verbatim}
+[ERROR] Tests run: 7, Failures: 6, Errors: 0, Skipped: 0
+\end{verbatim}
+
+  \end{enumerate}
+\item
+  Commit current changes with an appropriate commit message and push them back into the GitLab repository. For the first step in the lab part (below) it may look like this.
+
+\begin{verbatim}
+git commit --all --message "Implement the constructor with \ 
+dimension arguments."
+git push
+\end{verbatim}
+\item
+  Go to the project's repository on GitLab and make sure the expected number of tests are passing. After the first step in the lab part (below) the test passing badge should show \texttt{1/7}.
+\end{enumerate}
+
+\section{Instructions: Lab part}\label{instructions-lab-part}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Implement the \texttt{Matrix} constructor with dimension arguments.
+
+  \begin{itemize}
+  \item
+    Follow the tutorials above.
+  \end{itemize}
+\item
+  Implement the \texttt{Matrix} constructor with an array argument.
+
+  \begin{itemize}
+  \item
+    Follow the same tutorials above with a specific implementation and a commit message.
+  \end{itemize}
+\item
+  Implement the \texttt{toString} method.
+
+  \begin{itemize}
+  \item
+    Same as above :-)
+  \end{itemize}
+\end{enumerate}
+
+\section{Instructions: Assignment part}\label{instructions-assignment-part}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Implement the \texttt{equals} method following the tutorial.
+\item
+  Implement the \texttt{times} method following the tutorial.
+\item
+  Implement the \texttt{plus} method following the tutorial.
+\item
+  Implement the \texttt{transpose} method following the tutorial.
+\end{enumerate}

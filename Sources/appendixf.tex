@@ -1,0 +1,121 @@
+\chapter{Lab01: Introduction}\label{lab01-introduction}
+
+This project is designed to introduce programing environment to students. It prints out \texttt{Hello\ world!} string and simulates a coin flip with an uneven probability. Additionally, it analyzes arrays of integers searching for specific value pairs.
+
+\begin{itemize}
+\item
+  For the sake of this lab \textbf{stick to the GitLab browser UI}.
+\item
+  This assignment is completed when all tests are passing.
+\end{itemize}
+
+Before you proceed to instructions, make sure you have walked through the AMS Tutorial for Solvers. Always make sure there is \textbf{no pending merge request}!
+
+\section{Instructions: lab part}\label{lab01-instructions-lab-part}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Use \textbf{GitLab browser UI} editor.
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    Navigate to the source file in \texttt{./src/main/Introduction.java}.
+  \item
+    Take your time to explore the source file.
+  \item
+    Click Edit button to start editing.
+  \end{enumerate}
+\item
+  Print ``Hello world!'' from the \texttt{main} method.
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    Replace the first \texttt{TODO} statement in \texttt{main} method with the following line of code. Use copy and paste.
+
+\begin{verbatim}
+System.out.println("Hello world!");
+\end{verbatim}
+  \item
+    Double-check your modifications before committing by clicking on the Preview changes button in the editor's header.
+  \item
+    Describe what the current modification does into a commit message (you may copy and paste the current instruction) and press Commit changes.
+  \item
+    Make sure the \emph{first} test is passing. After pipeline stops, the test passed badge will show \texttt{1/4}.
+  \end{enumerate}
+\item
+  Implement the \texttt{coinFlip} method.
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    Replace the \texttt{TODO} statement in \texttt{coinFlip} method with the following block of code. Use copy and paste and do not forget to remove the redundant empty return statement.
+
+\begin{verbatim}
+if (Math.random() < 0.55) {
+  return "heads";
+}
+return "tails";
+\end{verbatim}
+  \item
+    Double-check your modifications before committing by clicking on the Preview changes button in the editor's header.
+  \item
+    Describe what the current modification does into a commit message (you may copy and paste the current instruction) and press Commit changes.
+  \item
+    Make sure \emph{both first and second} tests are passing. After pipeline stops, the test passed badge will show \texttt{2/4}.
+  \end{enumerate}
+\item
+  Evaluate 100 runs of \texttt{coinFlip} in the \texttt{main} method.
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    Replace the second \texttt{TODO} statement in \texttt{main} method with the following block of code. Use copy and paste.
+
+\begin{verbatim}
+int heads = 0;
+for (int i = 0; i < 100; i++) {
+  if (coinFlip() == "heads") {
+    heads++;
+  }
+}
+System.out.println(heads);
+\end{verbatim}
+  \item
+    Double-check your modifications before committing by clicking on the Preview changes button in the editor's header.
+  \item
+    Describe what the current modification does into a commit message (you may copy and paste the current instruction) and press Commit changes.
+  \item
+    Make sure \emph{first three} tests are passing. After pipeline stops, the test passed badge will show \texttt{3/4}.
+  \end{enumerate}
+\end{enumerate}
+
+\section{Instructions: assignment part}\label{lab01-instructions-assignment-part}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Implement the \texttt{checkSum} method according to its Javadoc description.
+\item
+  Repeat the commit routine from above: double-check, describe and commit.
+\item
+  Make sure \emph{all tests} are passing. After pipeline stops, the test passed badge will show \texttt{4/4}.
+\end{enumerate}
+
+\section{Bonus questions}\label{bonus-questions}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  You may want to boost your coding style to 100\%. Can you figure out how?
+\item
+  Why is coding style important? See Google Java Style Guide and the internet.
+\item
+  What is the (expected) complexity of your \texttt{checkSum} implementation?
+\item
+  What is the best \texttt{checkSum} complexity you can think of? How about \emph{O(n)}?
+\item
+  Can you think of an \emph{O(n)} algorithm that would work for \emph{unsorted} arrays?
+\end{enumerate}
