@@ -1,4 +1,4 @@
-\chapter{Assignment Management System README}\label{assignment-management-system-readme}
+\chapter{AMS README}\label{ams-readme}
 
 This script provides commands to \emph{distribute} coding assignments to solvers, \emph{evaluate} individual solutions and \emph{measure} similarities between each other.
 
@@ -91,25 +91,26 @@ variables:
   Display badges in \texttt{README.md} file with links to appropriate log files (evaluate process):
 
 \begin{verbatim}
-[![pipeline status](https://gitlab.com/${PROJECT}/badges/${BRANCH}
-/pipeline.svg)](https://gitlab.com/${PROJECT}/-/pipelines?ref=${BR
-ANCH})
-[![compile](https://gitlab.com/${PROJECT}/builds/artifacts/${BRAN
-CH}/raw/.results/compile.svg?job=evaluate)](https://gitlab.com/${P
-ROJECT}/-/jobs/artifacts/${BRANCH}/file/.results/compile.log?job=e
-valuate)
-[![checkstyle](https://gitlab.com/${PROJECT}/builds/artifacts/${BR
-ANCH}/raw/.results/checkstyle.svg?job=evaluate)](https://gitlab.co
-m/${PROJECT}/-/jobs/artifacts/${BRANCH}/file/.results/checkstyle.l
-og?job=evaluate)
-[![test](https://gitlab.com/${PROJECT}/builds/artifacts/${BRANCH}/
-raw/.results/test.svg?job=evaluate)](https://gitlab.com/${PROJECT}
-/-/jobs/artifacts/${BRANCH}/file/.results/test.log?job=evaluate)
+[![pipeline](https://gitlab.com/${PROJECT}/badges/${BRAN
+CH}/pipeline.svg)](https://gitlab.com/${PROJECT}/-/pipel
+ines?ref=${BRANCH})
+[![compile](https://gitlab.com/${PROJECT}/builds/artifac
+ts/${BRANCH}/raw/.results/compile.svg?job=evaluate)](htt
+ps://gitlab.com/${PROJECT}/-/jobs/artifacts/${BRANCH}/fi
+le/.results/compile.log?job=evaluate)
+[![checkstyle](https://gitlab.com/${PROJECT}/builds/arti
+facts/${BRANCH}/raw/.results/checkstyle.svg?job=evaluate
+)](https://gitlab.com/${PROJECT}/-/jobs/artifacts/${BRAN
+CH}/file/.results/checkstyle.log?job=evaluate)
+[![test](https://gitlab.com/${PROJECT}/builds/artifacts/
+${BRANCH}/raw/.results/test.svg?job=evaluate)](https://g
+itlab.com/${PROJECT}/-/jobs/artifacts/${BRANCH}/file/.re
+sults/test.log?job=evaluate)
 \end{verbatim}
 
   \begin{itemize}
   \item
-    Replace \texttt{\$\{PROJECT\}} with your actual project's link, e.g.~\texttt{umiami/george/csc220/lab01}.
+    Replace \texttt{\$\{PROJECT\}} with your actual project's link, \\e.g.~\texttt{umiami/george/csc220/lab01}.
   \item
     Replace \texttt{\$\{BRANCH\}} with an actual branch, e.g.~\texttt{master}.
   \end{itemize}
@@ -151,7 +152,7 @@ raw/.results/test.svg?job=evaluate)](https://gitlab.com/${PROJECT}
 
   \begin{itemize}
   \item
-    See \texttt{ams\ distribution} documentation (default value is current user). Merges its values with \texttt{AMS\_USERS} file if exists. Values can be separated by any white-spaces or commas.
+    See \texttt{ams\ distribution} documentation (default value is current user). \\Merges its values with \texttt{AMS\_USERS} file if exists. Values can be separated by any white-spaces or commas.
   \end{itemize}
 \item
   \texttt{AMS\_ISSUES:\ "LABEL"}

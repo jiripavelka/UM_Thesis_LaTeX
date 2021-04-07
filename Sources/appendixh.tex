@@ -87,7 +87,7 @@ Downloads all repositories from a \texttt{NAMESPACE} matching given \texttt{PREF
 
   \begin{itemize}
   \item
-    Checkout each repository to the latest commit \emph{pushed} before \texttt{DATE}. \texttt{DATE} must be in ISO 8601 format, e.g.~\texttt{2021-03-05} or \texttt{2021-03-05T00:41:21+00:00}. Uses latest existing commits by default.
+    Checkout each repository to the latest commit \emph{pushed} before \texttt{DATE}. \texttt{DATE} must be in ISO 8601 format,  \\e.g.~\texttt{2021-03-05} or \texttt{2021-03-05T00:41:21+00:00}. Uses latest existing commits by default.
   \end{itemize}
 \item
   \texttt{-e}, \texttt{-\/-editable\ FILE...}
@@ -188,7 +188,7 @@ This script distributes files from \texttt{WORKING\_DIR} into \texttt{NAMESPACE/
 
   \begin{itemize}
   \item
-    Replace all occurrences of the assignment project's remote URL and its current branch with destination repository remote URL and its main branch in \texttt{README.md}. Note: \texttt{WORKING\_DIR} must be a GitLab project.
+    Replace all occurrences of the assignment project's remote URL and its current branch with destination repository remote URL including its main branch in \texttt{README.md}. Note: \texttt{WORKING\_DIR} must be a GitLab project.
   \end{itemize}
 \item
   \texttt{-n}, \texttt{-\/-dry-run}

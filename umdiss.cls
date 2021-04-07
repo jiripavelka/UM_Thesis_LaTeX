@@ -63,14 +63,14 @@
 
 \setlength{\paperheight}{11in}
 \setlength{\paperwidth}{8.5in}
-\setlength{\textheight}{8.75in}
+\setlength{\textheight}{8.5in}
 \setlength{\oddsidemargin}{0.4in}
 \setlength{\evensidemargin}{0.2in}
 \setlength{\textwidth}{6in}
-\setlength{\topmargin}{0.03in}
-\setlength{\headheight}{0.03in}
-\setlength{\headsep}{0.2in}
-\setlength{\footskip}{18pt}
+\setlength{\topmargin}{0in}
+%\setlength{\headheight}{0.2in}
+%\setlength{\headsep}{0.2in}
+%\setlength{\footskip}{18pt}
 
 
 
@@ -497,7 +497,7 @@
       \else
 	\addcontentsline{toc}{chapter}%
 	    {
-	\space\protect\numberline {APPENDIX \thechapter  \quad \MakeUppercase{#1}}}%
+	\space\protect\text{APPENDIX }\numberline{\thechapter}\MakeUppercase{#1}}%
       \fi
     \else
       \addcontentsline{toc}{chapter}{%
