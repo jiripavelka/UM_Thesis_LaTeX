@@ -63,15 +63,14 @@
 
 \setlength{\paperheight}{11in}
 \setlength{\paperwidth}{8.5in}
-\setlength{\textheight}{8.5in}
+\setlength{\textheight}{8.75in}
 \setlength{\oddsidemargin}{0.4in}
 \setlength{\evensidemargin}{0.2in}
 \setlength{\textwidth}{6in}
-\setlength{\topmargin}{0in}
-%\setlength{\headheight}{0.2in}
-%\setlength{\headsep}{0.2in}
-%\setlength{\footskip}{18pt}
-
+\setlength{\topmargin}{0.03in}
+\setlength{\headheight}{0.03in}
+\setlength{\headsep}{0.2in}
+\setlength{\footskip}{18pt}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -90,7 +89,7 @@
 \newcommand{\dissabstitle}{Thesis Title\\ if you want it split it}
 
 \newcommand{\dissauthoraddress}{USA}
-\newcommand{\dissmajor}{Master of Computer Science}
+\newcommand{\dissmajor}{M.S., Computer Science}
 \newcommand{\dissacknowledgmentsigplace}%
     {{\slshape
        \renewcommand{\arraystretch}{1.0}
@@ -171,8 +170,9 @@
       \end{center}}\\[15mm]
     {\dissauthorFirst\ \dissauthorLast}\\
     \dissdepartment \\[8mm]
-    A thesis submitted in partial fulfillment of \\
-    the requirement for the master's degree\\[15mm]
+    A thesis submitted in partial fulfillment of\\
+    the requirements for the degree of\\
+    Master of Science\\[15mm]
     Advisor : \disssupervisor \\[10mm]
     Committee Members \\[5mm]
     \disscommitteeFirst\\ 
@@ -204,13 +204,13 @@
       By \\[0.02\textheight]
       {\dissauthorFirst \ \dissauthorLast} \\
       \vspace{15mm}
-      {A MASTER'S THESIS} \\[15mm]
+      {A THESIS} \\[15mm]
 
 	\begin{spacing}{1}
 		Submitted to the Faculty \\
 		of the University of Miami \\
 		in partial fulfillment of the requirements for \\
-		the master's degree\\[30mm]
+		the degree of Master of Science\\[30mm]
 	\end{spacing}
       \@universityaddress \\
       \dissmonth \ \dissyear
@@ -379,7 +379,7 @@
       \vspace{5mm}
       \begin{spacing}{1}
 	  { Thesis supervised by Professor \disssupervisor.\\
-	  No. of pages in text: \pageref{LastPage}}
+	  No. of pages in text. (\pageref{LastPage})}
       \end{spacing}}\hfill
       \vspace{18mm}
       \begin{spacing}
@@ -497,7 +497,7 @@
       \else
 	\addcontentsline{toc}{chapter}%
 	    {
-	\space\protect\text{APPENDIX }\numberline{\thechapter}\MakeUppercase{#1}}%
+	\space\protect\text{APPENDIX~}\numberline{\thechapter}\MakeUppercase{#1}}%
       \fi
     \else
       \addcontentsline{toc}{chapter}{%
@@ -746,7 +746,7 @@ Wednesday\or Thursday\or Friday\or Saturday\fi}
    \edef\@currentlabel{\csname p@footnote\endcsname\@thefnmark}\@makefntext
     {\rule{\z@}{\footnotesep}\ignorespaces
       #1\strut}}}
-
+    \counterwithout{footnote}{chapter}
       
       
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
