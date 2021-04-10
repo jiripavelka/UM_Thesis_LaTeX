@@ -39,7 +39,9 @@
   {run and evaluated manually by professors, sometimes also by students}
 \end{itemize}
 
-\subsubsection{Testing Services}
+\subsection{Grading Services}
+
+{Gradescope is a tool designed to streamline and standardize paper-based, digital, and code assignments. It supports problem sets and projects as well as worksheets, quizzes, exams, and papers.}
 
 {Some professors tend to create their own proprietary online submission services, such as }{Progtest\footnote{http://progtest.fit.cvut.cz}}{. Students get an immediate evaluation upon (manual) submission and professors gain collective classification.}
 
@@ -60,7 +62,7 @@
   {Compilation test.}
 \end{itemize}
 
-\subsubsection{Online File Systems}
+\subsection{Online File Systems}
 
 {Online file systems, such as Google Drive or Workspace, MS OneDrive, Box, are meant to store and share documents and general files. For the sake of assignments, online file systems are commonly used strictly for submitting (uploading) solutions.}
 
@@ -68,7 +70,7 @@
 \item
   {store and share files online,}
 \item
-  {synchronize with local filesystem (platform specific)}
+  {synchronize with local file system (platform specific)}
 \end{itemize}
 
 \subsection{Learning Management Systems} \label{ssec:lms}
@@ -564,7 +566,7 @@ Based on several requirement gathering techniques \cite{young2002recommended}, l
 \item
   {{[}QR2{]} }{Flexible adjustable (source-available) system.}
 \item
-  {{[}QR3{]} Fill-scale }{automation including continuous integration.}
+  {{[}QR3{]} Full-scale }{automation including continuous integration.}
 \item
   {{[}QR4{]} }{Installable on your own hardware storing data inside the institution.}
 \item
@@ -664,6 +666,10 @@ Based on several requirement gathering techniques \cite{young2002recommended}, l
 \item
   {{[}MDM{]} Manual Distribution Methods}
 \item
+  {{[}GS{]} Grading Services}
+\item
+  {{[}OFS{]} Online File Systems}
+\item
   {{[}MOD{]} Moodle}
 \item
   {{[}BB{]} BlackBoard}
@@ -690,22 +696,24 @@ Based on several requirement gathering techniques \cite{young2002recommended}, l
 \begin{table}[H]
     \centering
     \bgroup
-    \def\arraystretch{1.5}
+    \def\arraystretch{1.3}
     \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
     \hline
          & QR1 & QR2 & QR3 & QR4 & QR5 & QR6 & QR7 & QR8 & QR9 & QR10 \\ \hline
-        MDM & × & v & × & v & × & × & v & × & × & × \\ \hline
-        MOD & × & v & v & v & × & × & ? & v & ? & × \\ \hline
-        BB & × & × & × & × & × & × & ? & × & × & × \\ \hline
-        GHC & v & × & v & × & ? & × & v & × & v & v \\ \hline
-        GCL & × & × & ? & × & ? & × & v & v & × & × \\ \hline
-        HRfS & × & × & × & × & × & × & × & ? & × & × \\ \hline
-        HE & × & × & × & × & × & × & × & ? & × & × \\ \hline
-        ZB & × & × & × & × & × & × & × & × & × & × \\ \hline
-        OL & × & × & × & × & × & × & v & v & × & × \\ \hline
-        CLB & × & × & × & × & × & × & v & × & × & × \\ \hline
-        WA & × & × & × & × & × & × & v & × & × & × \\ \hline
-        AMS & v & v & v & v & v & v & v & v & v & v \\ \hline
+        MDM & \fail & \pass & \fail & \pass & \fail & \fail & \pass & \fail & \fail & \fail \\ \hline
+        GS & \fail & \fail & \fail & \fail & \unkn & \fail & \pass & \fail & \pass & \pass \\ \hline
+        OFS & \fail & \fail & \fail & \fail & \fail & \fail & \unkn & \unkn & \pass & \pass \\ \hline
+        MOD & \fail & \pass & \pass & \pass & \fail & \fail & \unkn & \pass & \unkn & \fail \\ \hline
+        BB & \fail & \fail & \fail & \fail & \fail & \fail & \unkn & \fail & \fail & \fail \\ \hline
+        GHC & \pass & \fail & \pass & \fail & \unkn & \fail & \pass & \fail & \pass & \pass \\ \hline
+        GCL & \fail & \fail & \unkn & \fail & \unkn & \fail & \pass & \pass & \fail & \fail \\ \hline
+        HRfS & \fail & \fail & \fail & \fail & \fail & \fail & \fail & \unkn & \fail & \fail \\ \hline
+        HE & \fail & \fail & \fail & \fail & \fail & \fail & \fail & \unkn & \fail & \fail \\ \hline
+        ZB & \fail & \fail & \fail & \fail & \fail & \fail & \fail & \fail & \fail & \fail \\ \hline
+        OL & \fail & \fail & \fail & \fail & \fail & \fail & \pass & \pass & \fail & \fail \\ \hline
+        CLB & \fail & \fail & \fail & \fail & \fail & \fail & \pass & \fail & \fail & \fail \\ \hline
+        WA & \fail & \fail & \fail & \fail & \fail & \fail & \pass & \fail & \fail & \fail \\ \hline
+        AMS & \pass & \pass & \pass & \pass & \pass & \pass & \pass & \pass & \pass & \pass \\ \hline
     \end{tabular}
     \egroup
     \caption{Qualitative Requirements Evaluation}
@@ -714,22 +722,24 @@ Based on several requirement gathering techniques \cite{young2002recommended}, l
 \begin{table}[H]
     \centering
     \bgroup
-    \def\arraystretch{1.5}
+    \def\arraystretch{1.3}
     \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
     \hline
          & FR1 & FR2 & FR3 & FR4 & FR5 & FR6 & FR7 & FR8 & FR9 & FR10 \\ \hline
-        MDM & × & × & × & × & × & × & × & × & × & × \\ \hline
-        MOD & ? & × & ? & v & v & × & v & × & ? & × \\ \hline
-        BB & × & × & ? & × & × & × & v & × & × & × \\ \hline
-        GHC & v & v & v & v & v & ? & v & ? & ? & × \\ \hline
-        GCL & v & × & v & v & v & × & v & × & ? & × \\ \hline
-        HRfS & v & × & × & v & v & × & v & × & ? & v \\ \hline
-        HE & v & × & × & × & v & × & v & × & ? & × \\ \hline
-        ZB & v & × & × & × & v & × & v & × & ? & × \\ \hline
-        OL & × & × & v & × & × & × & v & × & × & × \\ \hline
-        CLB & × & × & v & × & × & × & v & × & × & × \\ \hline
-        WA & × & × & v & × & × & × & v & × & × & × \\ \hline
-        AMS & v & v & v & v & v & v & v & v & v & v \\ \hline
+        MDM & \fail & \fail & \fail & \fail & \fail & \fail & \fail & \fail & \fail & \fail \\ \hline
+        GS & \fail & \fail & \fail & \fail & \pass & \fail & \fail & \fail & \pass & \pass \\ \hline
+        OFS & \fail & \fail & \unkn & \fail & \fail & \fail & \fail & \fail & \fail & \fail \\ \hline
+        MOD & \unkn & \fail & \unkn & \pass & \pass & \fail & \pass & \fail & \unkn & \fail \\ \hline
+        BB & \fail & \fail & \unkn & \fail & \fail & \fail & \pass & \fail & \fail & \fail \\ \hline
+        GHC & \pass & \pass & \pass & \pass & \pass & \unkn & \pass & \unkn & \unkn & \fail \\ \hline
+        GCL & \pass & \fail & \pass & \pass & \pass & \fail & \pass & \fail & \unkn & \fail \\ \hline
+        HRfS & \pass & \fail & \fail & \pass & \pass & \fail & \pass & \fail & \unkn & \pass \\ \hline
+        HE & \pass & \fail & \fail & \fail & \pass & \fail & \pass & \fail & \unkn & \fail \\ \hline
+        ZB & \pass & \fail & \fail & \fail & \pass & \fail & \pass & \fail & \unkn & \fail \\ \hline
+        OL & \fail & \fail & \pass & \fail & \fail & \fail & \pass & \fail & \fail & \fail \\ \hline
+        CLB & \fail & \fail & \pass & \fail & \fail & \fail & \pass & \fail & \fail & \fail \\ \hline
+        WA & \fail & \fail & \pass & \fail & \fail & \fail & \pass & \fail & \fail & \fail \\ \hline
+        AMS & \pass & \pass & \pass & \pass & \pass & \pass & \pass & \pass & \pass & \pass \\ \hline
     \end{tabular}
     \egroup
     \caption{Functional Requirements Evaluation}
